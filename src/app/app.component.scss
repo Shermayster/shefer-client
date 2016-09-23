@@ -1,0 +1,51 @@
+/*
+library imports
+*/
+
+//components imports
+@import "./header/header.component";
+@import "./sign-in/sign-in.component";
+@import "./sign-up/sign-up.component";
+
+@import "./shared/styles/variables";
+
+html, body {
+    direction: rtl;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    background-color: $lighter-color;
+}
+.amatica {
+    font-family: 'Amatica SC', cursive;
+}
+
+table, th, td {
+    text-align: center;
+    i {
+        cursor: pointer;
+    }
+}
+input[type="text"] {
+    direction:rtl
+}
+
+.center {
+    text-align: center;
+}
+
+.side-menu {
+    width: 15rem;
+    float: right;
+    position: fixed;
+    background-color: $dark-color;
+    height: 100vh;
+    li {
+        a {
+            color:$lighter-color;
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+}
+@import "./side-menu/side-menu.component";

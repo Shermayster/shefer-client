@@ -1,0 +1,23 @@
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>משפחה</th>
+    <th>פעילויות</th>
+    <th>משובים</th>
+    <th>עדכון תוכנית</th>
+    <th>יצירת קשר</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patient of data.patients">
+    <th scope="row">{{patient.lastFamily}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></th>
+    <td><ul class="list-unstyled">
+      <li *ngFor="let activity of patient.activities let i = index">{{i+1}} {{activity.activityName}}</li>
+    </ul></td>
+    <td><i class="material-icons">insert_drive_file</i></td>
+    <td><i class="material-icons">settings_applications</i></td>
+    <td><i class="material-icons">contacts</i></td>
+  </tr>
+  </tbody>
+</table>

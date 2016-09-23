@@ -1,0 +1,76 @@
+<h1>צפייה בכרטיס משפחה</h1>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button"  (click)="tabNumber = 2"  class="btn btn-secondary">ביצוע הפעילויות</button>
+    <button type="button" (click)="tabNumber = 1" class="btn btn-secondary">פרטים אישיים</button>
+
+</div>
+<div *ngIf="tabNumber === 1" >
+    <form action="" *ngIf="patient" #patientForm="ngForm" (ngSubmit)="onSubmit()">
+        <h3>משפחת {{patient.lastFamily}}</h3>
+        <button class="btn btn-outline-info" (click)="editable = true" >עדכון פרטים</button>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>שם ההורה</th>
+                <th>שם הילד</th>
+                <th>תאריך רישום למערכת</th>
+            </tr>
+            </thead>
+            <tbody>
+            <td><input type="text" [value]="contact.parentName" (change)="contact.parentName = $event.target.value" required [disabled]="!editable"></td>
+            <td><input type="text" [value]="contact.childName" (change)="contact.childName = $event.target.value" required  [disabled]="!editable"></td>
+            <td><input  type="date" [value]="contact.startDate" (change)="contact.startDate = $event.target.value" [disabled]="!editable"></td>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>טלפון</th>
+                <th>טלפון נוסף</th>
+                <th>כתובת אימייל</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="tel" [value]="contact.tel" (change)="contact.tel = $event.target.value" required [disabled]="!editable"></td>
+                <td><input type="tel" [value]="contact.tel2 || ''" [disabled]="!editable" (change)="contact.tel2 = $event.target.value" ></td>
+                <td><input type="email" [value]="contact.email" required [disabled]="!editable" (change)="contact.email = $event.target.value"></td>
+            </tr>
+            <tr>
+                <input id="comments" type="checkbox" (change)="comments = $event.target.checked">
+                <label for="comments">הערות</label>
+                <br>
+                <textarea *ngIf="comments" [value]="contact.comments || ''" (change)="contact.comments = $event.target.value" ></textarea>
+
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-outline-primary" type="submit" [disabled]="!patientForm.form.valid">שמירה</button>
+        <button (click)="onCancel()" type="reset" class="btn btn-outline-secondary">ביטול</button>
+    </form>
+</div>
+<div *ngIf="tabNumber === 2">
+    <h3>צפייה בהתקדמות ביצוע הפעילויות</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>פעילויות</th>
+            <th>משובים</th>
+            <th>עדכון תוכנית</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <ul class="list-unstyled">
+                    <li *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>
+                    <li *ngIf="activitiesResponse.partialExecution>0"><span>{{activitiesResponse.partialExecution}}</span>  בוצע חלקית מתוך {{activitiesResponse.overallActivities}} </li>
+                    <li *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</li>
+                </ul>
+            </td>
+            <td><i (click)="responseRoute()" class="material-icons">settings_applications</i></td>
+            <td><i class="material-icons">contacts</i></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
