@@ -1,5 +1,9 @@
 /* tslint:disable:no-unused-variable */
 
+describe('1st tests', () => {
+  it('true is true', () => expect(true).toBe(true));
+});
+/*
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
@@ -31,3 +35,4 @@ describe('App: ClientWebpack', () => {
     expect(compiled.querySelector('h1').textContent).toContain('app works!');
   }));
 });
+*/

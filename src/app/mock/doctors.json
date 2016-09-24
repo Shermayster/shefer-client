@@ -28,7 +28,7 @@
             "activitiesProgram": {
               "activity":"שתיה",
               "group":"meal",
-                "frequency":"3",
+                "frequency": 3,
                 "ages":"2-3"
               },
             "parentContact": {

@@ -1,3 +1,4 @@
+/*
 import {
   fakeAsync,
   inject,
@@ -42,3 +43,4 @@ describe('x-large directive', () => {
   }));
 
 });
+*/

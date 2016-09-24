@@ -12,5 +12,4 @@ constructor(private isAuth:IsAuth) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<boolean> | boolean {
         return this.isAuth._isAuth;
     }
-
 }

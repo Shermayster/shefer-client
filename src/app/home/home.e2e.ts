@@ -1,3 +1,4 @@
+/*
 describe('App', () => {
 
   beforeEach(() => {
@@ -20,3 +21,4 @@ describe('App', () => {
 
 
 });
+*/
