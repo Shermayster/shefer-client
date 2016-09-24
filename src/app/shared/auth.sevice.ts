@@ -65,12 +65,15 @@ export class AuthService {
    *
    * @returns {boolean}
    */
-  getAuth():boolean {
+  getAuth():Observable<boolean> {
+    let state:boolean;
     if(this.doctorData._doctorData) {
-      return true;
+      state = true;
     }else {
-      return false;
+
+      state = false;
     }
+    return Observable.of(state);
   }
 
 
