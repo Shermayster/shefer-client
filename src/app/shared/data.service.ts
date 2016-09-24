@@ -14,29 +14,59 @@ export class PatientData {
 }
 @Injectable()
 export class DataService {
-  pushData = new EventEmitter<UserBase>();
   private doctor:UserBase;
-  private patient:any;
+  private patient:PatientBase;
   constructor(public doctorData:DoctorData, public patientData:PatientData) { }
-  addDoctor(data:UserBase) {
+
+  /** choose current doctor to show
+   *
+   * @param data
+   */
+  setDoctor(data:UserBase) {
     this.doctor = data;
     this.doctorData._doctorData = data;
-    console.log('doctor is: ' + this.doctor);
   }
 
-  getDoctor():UserBase {
-    return this.doctor
+  /**return doctor data
+   *
+   * @returns {UserBase}
+   */
+  getDoctorData():UserBase {
+    return this.doctorData._doctorData;
   }
 
-  addPatien(parent) {
-    this.patient = parent;
+  /** returns patient data
+   *
+   * @returns {PatientBase}
+   */
+  getPatientData():PatientBase {
+    return this.patientData._patientData;
+  }
+
+  /**choose current parent to show
+   *
+   * @param parent
+   */
+  setPatient(parent) {
     this.patientData._patientData = parent;
     console.log('patient data service: ', this.patient);
   }
-  getPatient() {
-    console.log('patient data service get: ', this.patient);
-    return this.patient;
+
+  /**return current patient data
+   *
+   * @returns {PatientBase}
+   */
+  getPatient():PatientBase {
+    console.log('patient data service get: ', this.patientData._patientData);
+    return this.patientData._patientData;
   }
 
+  /** clean current data variables for logout
+   *
+   */
+  cleanData() {
+    this.doctorData._doctorData = null;
+    this.patientData._patientData = null;
+  }
 
 }

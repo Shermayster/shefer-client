@@ -3,13 +3,13 @@
  */
 import { Injectable } from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
-import { IsAuth} from "./auth.sevice";
+import {AuthService} from './auth.sevice';
 import {Observable} from "rxjs";
 
 @Injectable()
 export class AuthGuard implements CanActivate{
-constructor(private isAuth:IsAuth) { }
+  constructor(public authService:AuthService) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):Observable<boolean> | boolean {
-        return this.isAuth._isAuth;
+        return this.authService.getAuth();
     }
 }

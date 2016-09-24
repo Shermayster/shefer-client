@@ -17,7 +17,7 @@ export class ProtectedClass implements AfterViewInit{
   userData:UserBase;
   constructor(private auth: AuthService, private dataService:DataService) { }
   ngAfterViewInit() {
-      this.userData = this.dataService.getDoctor();
+    /*  this.userData = this.dataService.getDoctor();*/
     console.log('user data is: ', this.userData);
   }
 }

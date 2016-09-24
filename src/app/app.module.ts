@@ -9,7 +9,7 @@ import {SideMenuComponent} from "./side-menu/side-menu.component";
 import {ParentResponse} from "./parent-page/response.component/response.component";
 import {ParentPage} from "./parent-page/paren-page.component";
 import {ControlPanelComponent} from "./control-panel/control-panel.component";
-import {AuthService, IsAuth} from "./shared/auth.sevice";
+import {AuthService} from "./shared/auth.sevice";
 import {DataService, DoctorData, PatientData} from "./shared/data.service";
 import {HttpService} from "./shared/http.service";
 import {About} from "./about/about.component";
@@ -55,13 +55,12 @@ import {AuthGuard} from "./shared/auth.guard";
     ROUTES
   ],
   providers: [
-      AuthService,
+    AuthService,
     DataService,
     DoctorData,
     PatientData,
     HttpService,
     AppState,
-    IsAuth,
     AuthGuard
   ],
   bootstrap: [AppComponent]

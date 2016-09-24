@@ -7,6 +7,8 @@ import { DataResolver } from './app.resolver';
 import {SignUpComponent} from "./sign-up/sign-up.component";
 import {SignInComponent} from "./sign-in/sign-in.component";
 import {ModuleWithProviders} from "@angular/core";
+import {AuthGuard} from "./shared/auth.guard";
+import {ProtectedClass} from "./protected/protected.component";
 
 
 const appRoutes: Routes = [
@@ -15,6 +17,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo:'/signin', pathMatch: 'full'},
   { path:'signup', component:SignUpComponent},
   { path:'signin', component:SignInComponent},
+  {path:'protected', component: ProtectedClass, canActivate: [AuthGuard]},
   {
     path: 'detail', loadChildren: () => System.import('./+detail')
   },
