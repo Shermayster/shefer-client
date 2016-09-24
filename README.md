@@ -1,4 +1,5 @@
-# ClientWebpack
+# Shefer Client app 
+Is angular 2 app for [Shefer](http://www.shefer-kids.com/) 
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
 

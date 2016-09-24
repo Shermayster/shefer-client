@@ -1,7 +1,6 @@
 {
-  "name": "client-webpack",
-  "version": "0.0.0",
-  "license": "MIT",
+  "name": "shefer-sapp",
+  "version": "0.1.0",
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",

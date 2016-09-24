@@ -26,10 +26,10 @@ export class AuthService {
         res => {
            this.checkUser(values,res.results[0].data)
              .subscribe(
-               (value:boolean) => {
-                 if(value === true) {
+               (value:UserBase) => {
+                 if(value) {
                    //set current doctor
-                   this.dataService.setDoctor(res);
+                   this.dataService.setDoctor(value);
                    this.router.navigate(['protected']);
 
                  } else{
@@ -47,9 +47,10 @@ export class AuthService {
    * @param values
    * @param data
    */
-  checkUser(values, data):Observable<boolean>{
+  checkUser(values, data):Observable<UserBase>{
+    let res:UserBase;
     let user:UserBase = data.find(obj => obj.key === values.email)
-    let res:boolean = user.password === values.password;
+    user.password === values.password ? res = user : res = null;
     return Observable.of(res);
   }
 
