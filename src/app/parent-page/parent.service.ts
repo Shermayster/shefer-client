@@ -6,13 +6,14 @@ export class ActivitiesResponse {
   done:number;
   partialExecution:number;
   notCarriedOut:number;
+  notCooperating:number;
   overallActivities:number;
 }
 
 export class ParentService {
-
+//calculate number and type of activities response
   calcActivities(activities:ActivityBase[]): ActivitiesResponse{
-    let responseActivities:ActivitiesResponse = {done: 0, partialExecution:0, notCarriedOut:0, overallActivities:0};
+    let responseActivities:ActivitiesResponse = {done: 0, partialExecution:0, notCarriedOut:0, overallActivities:0, notCooperating:0};
     activities.forEach(activity => {
       responseActivities.overallActivities ++;
       switch (activity.activityResponse) {
@@ -24,6 +25,9 @@ export class ParentService {
               break;
         case "Not Carried Out":
           responseActivities.notCarriedOut ++;
+              break;
+        case "Not Cooperating":
+          responseActivities.notCooperating ++;
               break;
       }
     });

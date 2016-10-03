@@ -34,9 +34,6 @@ input[type="text"] {
 }
 
 .side-menu {
-    width: 15rem;
-    float: right;
-    position: fixed;
     background-color: $dark-color;
     height: 100vh;
     li {
@@ -49,3 +46,4 @@ input[type="text"] {
     }
 }
 @import "./side-menu/side-menu.component";
+@import "shared/styles/botstrap-fixes";

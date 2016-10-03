@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {AppState} from "./app.service";
 import {DoctorData, PatientData} from "./shared/data.service";
-import {AuthService} from "./shared/auth.sevice";
+import {AuthService, AppAuth} from "./shared/auth.sevice";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 
@@ -9,10 +9,11 @@ import {Router} from "@angular/router";
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnChanges{
   isAuth:boolean = false;
 
-  constructor(public appState: AppState, private authService:AuthService, private router: Router) {
-
+  constructor(public appState: AppState, private authService:AuthService, private router: Router, public appAuth:AppAuth) { }
+  ngOnChanges() {
+    this.isAuth = this.appAuth._authState;
   }
 }

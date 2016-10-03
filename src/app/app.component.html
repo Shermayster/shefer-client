@@ -1,10 +1,17 @@
 <app-header></app-header>
-<div class="side-menu" *ngIf="isAuth">
-  <side-menu></side-menu>
-</div>
+
 
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="row">
+    <div class="side-menu col-sm-3 " *ngIf="appAuth._authState">
+      <side-menu></side-menu>
+    </div>
+    <div [ngClass]="{'col-sm-9': appAuth._authState}">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
 </div>
 
 

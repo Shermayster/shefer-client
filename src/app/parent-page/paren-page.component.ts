@@ -75,4 +75,8 @@ export class ParentPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
+  //turn on editing
+  makeEditable() {
+    this.editable = !this.editable;
+  }
 }

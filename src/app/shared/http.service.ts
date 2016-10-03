@@ -8,7 +8,9 @@ import { Observable }     from 'rxjs/Observable';
 @Injectable()
 
 export class HttpService {
-  private doctorsUrl = "http://beta.randomapi.com/api/mfi9sinx?key=0VJ8-EFZN-VOHZ-Y825";
+/*  private doctorsUrl = "http://beta.randomapi.com/api/c7fd9429af7f9879b873e89b02d93c1d";*/
+ /* private  doctorsUrl = "http://localhost:53560/api/doctor"*/
+  private  doctorsUrl = "app/mock/doctors.json"
   constructor(private http:Http) {}
 
   /**get data from server

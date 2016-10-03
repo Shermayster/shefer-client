@@ -10,11 +10,15 @@ import {PartialObserver} from "rxjs/Observer";
 /**
  *
  */
+export class AppAuth {
+  _authState:boolean;
+}
+
 @Injectable()
 export class AuthService {
   userData:any = new EventEmitter<UserBase>();
   private doctorsUrl = "app/mock/doctors.json";
-  constructor(private httpService:HttpService,  private router: Router, public doctorData:DoctorData , private dataService:DataService) { }
+  constructor(private httpService:HttpService,  private router: Router, public doctorData:DoctorData , private dataService:DataService, public appAuth:AppAuth) { }
 
 
   /**check user input to sign user
@@ -31,7 +35,7 @@ export class AuthService {
                    //set current doctor
                    this.dataService.setDoctor(value);
                    this.router.navigate(['protected']);
-
+                   this.getAuth();
                  } else{
                    //todo: write response to user
 
@@ -70,9 +74,9 @@ export class AuthService {
     if(this.doctorData._doctorData) {
       state = true;
     }else {
-
       state = false;
     }
+    this.appAuth._authState = state;
     return Observable.of(state);
   }
 
