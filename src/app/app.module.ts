@@ -25,6 +25,9 @@ import {RouterModule} from "@angular/router";
 import {AppState} from "./app.service";
 import {ROUTES} from "./app.routes";
 import {AuthGuard} from "./shared/auth.guard";
+import {ProgramPageComponent} from "./parent-page/program-page/program-page.component";
+import {ActivityComponent} from "./parent-page/program-page/activity.component/activity.component";
+import {ProgramCartComponent} from "./parent-page/program-page/program-cart.component/program-cart.component";
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import {AuthGuard} from "./shared/auth.guard";
     ControlPanelComponent,
     ParentPage,
     ParentResponse,
-    SideMenuComponent
+    ProgramPageComponent,
+    SideMenuComponent,
+    ActivityComponent,
+    ProgramCartComponent
   ],
   imports: [
     BrowserModule,

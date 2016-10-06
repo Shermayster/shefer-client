@@ -3,10 +3,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="side-menu col-sm-3 " *ngIf="appAuth._authState">
+    <div class="side-menu col-sm-2 " *ngIf="appAuth._authState">
       <side-menu></side-menu>
     </div>
-    <div [ngClass]="{'col-sm-9': appAuth._authState}">
+    <div [ngClass]="{'col-sm-10': appAuth._authState}">
       <router-outlet></router-outlet>
     </div>
 

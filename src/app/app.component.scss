@@ -1,7 +1,8 @@
 /*
 library imports
-*/
 
+*/
+@import "../../node_modules/bootstrap/scss/bootstrap";
 //components imports
 @import "./header/header.component";
 @import "./sign-in/sign-in.component";
@@ -45,5 +46,24 @@ input[type="text"] {
         }
     }
 }
+.activity-card {
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 7rem;
+
+}
+.activity-program {
+  .tab-content {
+    .active {
+      display: flex;
+      height: 25.4rem;
+    }
+  }
+}
+
 @import "./side-menu/side-menu.component";
 @import "shared/styles/botstrap-fixes";

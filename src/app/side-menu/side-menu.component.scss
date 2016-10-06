@@ -1,12 +1,10 @@
 .side-menu {
   padding-top: 1rem;
   ul {
-    padding-right: .5rem;
     li {
       margin-top: 1rem;
       font-weight: bold;
       line-height: 1rem;
-      margin-right: 2rem;
     }
   }
 }
@@ -15,13 +13,14 @@
   display: flex;
   justify-content: space-around;
   input {
-    width:10rem;
+    width:8rem;
   }
   .material-icons {
     background-color: $primary-color;
     color: $lighter-color;
+    font-size: 1rem;
     margin-right: .5rem;
-    padding: .5rem;
+    padding: .8rem;
     cursor: pointer;
   }
 }

@@ -14,3 +14,10 @@
 .nav-tabs .nav-item {
   float: right;
 }
+
+.tab-content > .active {
+  display: flex;
+}
+.card {
+  display: flex;
+}

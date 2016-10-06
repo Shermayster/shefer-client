@@ -76,7 +76,7 @@
           <li *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</li>
         </ul>
         <div class="card-block">
-          <a href="#" class="btn btn-primary">שינוי תוכנית</a>
+          <a (click)="changeProgram()" class="btn btn-primary">שינוי תוכנית</a>
         </div>
 
       </div>

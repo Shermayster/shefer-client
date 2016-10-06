@@ -5,6 +5,7 @@
 import {Injectable, EventEmitter} from "@angular/core";
 import {UserBase} from "./user.interface";
 import {PatientBase} from "./patien.interface";
+import {ActivityInterface} from "./activity.interface";
 
 export class DoctorData {
   _doctorData:UserBase;
@@ -67,6 +68,17 @@ export class DataService {
   cleanData() {
     this.doctorData._doctorData = null;
     this.patientData._patientData = null;
+  }
+
+  //Create Order Activities List by Program Name
+  orderActivities(activities, programName):ActivityInterface[] {
+    let programActivities:ActivityInterface[] = [];
+    activities.map(activity => {
+      if(activity.ProgramName === programName) {
+        programActivities.push(activity);
+      }
+    })
+    return programActivities;
   }
 
 }

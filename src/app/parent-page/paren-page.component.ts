@@ -79,4 +79,8 @@ export class ParentPage implements OnInit, OnDestroy {
   makeEditable() {
     this.editable = !this.editable;
   }
+  //navigate to program page
+  changeProgram() {
+    this.router.navigate(['parent/program-page/', this.patient.id]);
+  }
 }

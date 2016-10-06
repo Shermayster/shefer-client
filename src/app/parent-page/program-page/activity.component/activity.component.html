@@ -1,0 +1,26 @@
+<div >
+<div><span class="activity-title">
+  {{activity.ActivityName}}
+</span>
+  <i class="material-icons"
+     ngbPopover="
+     {{activity.Description}}
+"
+     popoverTitle="
+קטגוריה:
+{{activity.ActivityType}}
+|
+קבוצת גיל:
+{{activity.ProgramName}}
+"
+     placement="left">
+    info_outline
+  </i>
+</div>
+
+<div>
+ <input type="number" min="0" max="14" (focus)="showFreq = true" (blur)="showFreq = false">
+  <br>
+  <span  class="activity-freq-title" [hidden]="!showFreq"> מספר פעילויות לשבוע </span>
+</div>
+</div>
