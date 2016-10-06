@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA;;EAEE;ACDF,eAAgB;EACd,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;;AAEnB,oBAAqB;EACnB,SAAS,EAAE,KAAK;EAChB,KAAK,EDFQ,OAAO;;ACItB,oBAAqB;EACnB,MAAM,EAAE,MAAM;;AAEhB,CAAE;EACA,SAAS,EAAE,IAAI;EACf,QAAQ,EAAE,QAAQ;EAClB,IAAI,EAAE,CAAC;EACP,GAAG,EAAE,CAAC;EACN,MAAM,EAAE,OAAO;EACf,KAAK,EDdW,OAAO",
+"sources": ["../../../shared/styles/variables.scss","activity.component.scss"],
+"names": [],
+"file": "activity.component.css"
+}
