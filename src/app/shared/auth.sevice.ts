@@ -25,9 +25,11 @@ export class AuthService {
    *
    */
   signinUser(values):void {
-     this.httpService.getDataFromServer()
+     this.httpService.getDataFromServer(values)
       .subscribe(
         res => {
+
+          console.log("user auth: ", res);
            this.checkUser(values,res.results[0].data)
              .subscribe(
                (value:UserBase) => {
@@ -38,7 +40,6 @@ export class AuthService {
                    this.getAuth();
                  } else{
                    //todo: write response to user
-
                  }
                }
              )

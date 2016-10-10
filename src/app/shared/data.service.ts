@@ -74,7 +74,7 @@ export class DataService {
   orderActivities(activities, programName):ActivityInterface[] {
     let programActivities:ActivityInterface[] = [];
     activities.map(activity => {
-      if(activity.ProgramName === programName) {
+      if(activity.programName === programName) {
         programActivities.push(activity);
       }
     })

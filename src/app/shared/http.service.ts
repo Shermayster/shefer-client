@@ -12,6 +12,8 @@ export class HttpService {
 /*  private doctorsUrl = "http://beta.randomapi.com/api/c7fd9429af7f9879b873e89b02d93c1d";*/
  /* private  doctorsUrl = "http://localhost:53560/api/doctor"*/
   private  doctorsUrl = "app/mock/doctors.json"
+  //private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
+  private serverGetDoctor = "http://localhost:53560/api/Email"
   private  activitiesUrl = "http://localhost:53560/api/Activity"
   constructor(private http:Http) {}
 
@@ -19,8 +21,8 @@ export class HttpService {
    *
    * @returns {Observable<R>}
    */
-  getDataFromServer() {
-    return this.http.get(this.doctorsUrl)
+  getDataFromServer(value) {
+    return this.http.get(this.serverGetDoctor + "?Email="+value.email+"&Password="+value.password)
       .map(res => res.json());
   }
 

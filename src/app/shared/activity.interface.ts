@@ -3,9 +3,9 @@
  */
 
 export class ActivityInterface {
-  ActivityID:number;
-  ActivityName:string;
-  Description: string;
-  ActivityType:string;
-  ProgramName: string;
+  activityID:number;
+  activityName:string;
+  description: string;
+  activityType:string;
+  programName: string;
 }
