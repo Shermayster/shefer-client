@@ -2,32 +2,38 @@
  * Created by novliza86 on 29.8.2016.
  */
 export class PatientBase {
-  id:number;
-  lastFamily:string;
-  activities:ActivityBase[];
-  activitiesProgram:ActivitiesProgram;
-  parentContact:ParentContact;
-}
-
-export class ActivityBase {
-  activityName:string;
-  activityResponse:string;
-  activityFeedback:string;
-}
-
-export class ActivitiesProgram {
-  activity:string;
-  group:string;
-  frequency:string;
-  ages:string;
+  patientId:number;
+  doctorId:number;
+  password:number;
+  contact:ParentContact;
+  program:ActivitiesProgram[];
 }
 
 export class ParentContact {
+  patientId:number;
   parentName:string;
+  lastName:string;
   childName: string;
   startDate: Date;
   tel: string;
   tel2?: string;
   email: string;
-  comments?:string;
+}
+
+export class ActivitiesProgram {
+  programID:number;
+  patientId:number;
+  status:boolean;
+  startDay:string;
+  duration:number;
+  currentWeek:number;
+  patientActivityList:patientActivityList[];
+}
+export class patientActivityList {
+  patientActivityId:number;
+  activityResponce:string;
+  activityFeedback:string;
+  activityStatus:string;
+  programId:number
+  activityId:number;
 }

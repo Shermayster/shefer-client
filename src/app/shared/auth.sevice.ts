@@ -4,6 +4,7 @@ import {Injectable, EventEmitter} from "@angular/core";
 import {Router} from "@angular/router";
 import {UserBase} from "./user.interface";
 import {AppState} from "../app.service";
+import 'rxjs/add/observable/of';
 import {DataService, DoctorData} from "./data.service";
 import {HttpService} from "./http.service";
 import {PartialObserver} from "rxjs/Observer";
@@ -28,11 +29,19 @@ export class AuthService {
      this.httpService.getDataFromServer(values)
       .subscribe(
         res => {
+          if(res.ok === true) {
+            let data = res.json();
+            let value:UserBase = data.results[0].data[0];
+            //set current doctor
+            this.dataService.setDoctor(value);
+            this.router.navigate(['protected']);
+            this.getAuth();
+          }else {
+            throw 'http error'
+          }
+           //this.checkUser(values,res.results[0].data)
 
-          console.log("user auth: ", res);
-           this.checkUser(values,res.results[0].data)
-             .subscribe(
-               (value:UserBase) => {
+             /*  (value:UserBase) => {
                  if(value) {
                    //set current doctor
                    this.dataService.setDoctor(value);
@@ -41,8 +50,8 @@ export class AuthService {
                  } else{
                    //todo: write response to user
                  }
-               }
-             )
+               }*/
+
         }
       );
   }

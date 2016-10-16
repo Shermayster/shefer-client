@@ -55,9 +55,9 @@ import {ProgramCartComponent} from "./parent-page/program-page/program-cart.comp
     HttpModule,
     RouterModule,
     ReactiveFormsModule,
-    NgbModule,
     JsonpModule,
     ParentsModule,
+    NgbModule.forRoot(),
     ROUTES
   ],
   providers: [

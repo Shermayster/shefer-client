@@ -5,7 +5,10 @@ import {Component, OnInit, OnDestroy} from '@angular/core'
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService, PatientData} from "../shared/data.service";
 import {Subscription} from "rxjs";
-import {PatientBase, ParentContact, ActivityBase} from "../shared/patien.interface";
+import {
+  PatientBase, ParentContact, patientActivityList,
+  ActivitiesProgram
+} from "../shared/patien.interface";
 import {AuthService} from "../shared/auth.sevice";
 import {Form} from "@angular/forms";
 import {ParentService, ActivitiesResponse} from "./parent.service";
@@ -29,11 +32,9 @@ export class ParentPage implements OnInit, OnDestroy {
       this.sub = this.route.params.subscribe(params => {
           let id = +params['id'];
           this.patient = this.patientData._patientData;
-          this.contact = Object.assign({},this.patient.parentContact);
-          this.activitiesResponse = this.getActivitiesCalc(this.patient.activities);
-          if (this.contact.comments) {
-            this.comments = true;
-          }
+          this.contact = this.patient.contact;
+          //let progarm:ActivitiesProgram[] = this.patient.program;
+          //this.activitiesResponse = this.getActivitiesCalc(progarm);
         },
         error => {
           //todo: delete in production
@@ -45,7 +46,8 @@ export class ParentPage implements OnInit, OnDestroy {
    *
    * @param data
    */
-  getActivitiesCalc(data:ActivityBase[]):ActivitiesResponse {
+  getActivitiesCalc(data:patientActivityList[]):ActivitiesResponse {
+    let response
      return this.parentService.calcActivities(data);
     }
 
@@ -55,7 +57,6 @@ export class ParentPage implements OnInit, OnDestroy {
   onSubmit() {
     //todo update post command
     console.log('submit data', this.contact);
-    this.patient.parentContact = this.contact;
     this.goBack();
   }
   /**cancel changes in form
@@ -66,7 +67,7 @@ export class ParentPage implements OnInit, OnDestroy {
   }
   responseRoute() {
     console.log('navigate');
-    this.router.navigate(['parent/response/', this.patient.id]);
+    this.router.navigate(['parent/response/', this.patient.patientId]);
   }
 
   goBack(): void {
@@ -81,6 +82,6 @@ export class ParentPage implements OnInit, OnDestroy {
   }
   //navigate to program page
   changeProgram() {
-    this.router.navigate(['parent/program-page/', this.patient.id]);
+    this.router.navigate(['parent/program-page/', this.patient.patientId]);
   }
 }

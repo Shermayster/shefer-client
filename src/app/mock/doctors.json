@@ -9,19 +9,22 @@
             {
               "id": 1,
               "lastFamily": "גרטי",
-              "password":"",
+              "password":"321321321",
               "activities": [
                 {
+                  "activityId": 1,
                   "activityGroup": "התנהגות בארוחה",
                   "activityName": "אכילה",
                   "activityResponse": "Done"
                 },
                 {
+                  "activityId": 1,
                   "activityGroup": "התנהגות בארוחה",
                   "activityName": "שתיה",
                   "activityResponse": "Not Carried Out"
                 },
                 {
+                  "activityId": 3,
                   "activityGroup": "לבוש",
                   "activityName": "כובע",
                   "activityResponse": "Done"

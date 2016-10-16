@@ -22,8 +22,7 @@ export class HttpService {
    * @returns {Observable<R>}
    */
   getDataFromServer(value) {
-    return this.http.get(this.serverGetDoctor + "?Email="+value.email+"&Password="+value.password)
-      .map(res => res.json());
+   return this.http.get(this.doctorsUrl)
   }
 
   postDatatoServer() {

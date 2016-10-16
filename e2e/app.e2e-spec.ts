@@ -1,10 +1,10 @@
-import { ClientWebpackPage } from './app.po';
+import { SheferClientAppPage } from './app.po';
 
-describe('client-webpack App', function() {
-  let page: ClientWebpackPage;
+describe('shefer-client-app App', function() {
+  let page: SheferClientAppPage;
 
   beforeEach(() => {
-    page = new ClientWebpackPage();
+    page = new SheferClientAppPage();
   });
 
   it('should display message saying app works', () => {

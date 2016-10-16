@@ -1,4 +1,5 @@
-import {ActivityBase} from "../shared/patien.interface";
+
+import {patientActivityList} from "../shared/patien.interface";
 /**
  * Created by novliza86 on 10/09/2016.
  */
@@ -12,11 +13,11 @@ export class ActivitiesResponse {
 
 export class ParentService {
 //calculate number and type of activities response
-  calcActivities(activities:ActivityBase[]): ActivitiesResponse{
+  calcActivities(activities:patientActivityList[]): ActivitiesResponse{
     let responseActivities:ActivitiesResponse = {done: 0, partialExecution:0, notCarriedOut:0, overallActivities:0, notCooperating:0};
     activities.forEach(activity => {
       responseActivities.overallActivities ++;
-      switch (activity.activityResponse) {
+      switch (activity.activityResponce) {
         case "Done":
           responseActivities.done ++;
               break;
