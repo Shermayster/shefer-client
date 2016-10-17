@@ -36,4 +36,5 @@ export class patientActivityList {
   activityStatus:string;
   programId:number
   activityId:number;
+  frequency:number;
 }

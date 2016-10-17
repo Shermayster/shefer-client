@@ -5,6 +5,7 @@
 import {Component, Output, EventEmitter} from "@angular/core";
 import {Input} from "@angular/core/src/metadata/directives";
 import {ActivityInterface} from "../../../shared/activity.interface";
+import {patientActivityList} from "../../../shared/patien.interface";
 @Component({
   selector:'activity-component',
   templateUrl:'./activity.component.html',
@@ -16,7 +17,10 @@ export class ActivityComponent {
   showFreq:boolean = false;
 
   changeValue(e) {
-    console.log('value changes: ', e);
-    this.valueUpdated.emit(e)
+    let patientActivity:patientActivityList = new patientActivityList;
+    patientActivity.activityId = this.activity.activityID;
+    patientActivity.frequency = e.target.value;
+    console.log('value changes: ', patientActivity);
+    this.valueUpdated.emit(patientActivity)
   }
 }
