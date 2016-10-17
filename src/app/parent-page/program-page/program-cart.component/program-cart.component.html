@@ -1,21 +1,51 @@
+<div class="row">
+  <div class="xs-col-12">
+    <div class="cart-container">
+      <div class="xs-col-12">
 
-<h4>סל פעילויות</h4>
-<div class="card cart-container flex-items-xs-center">
-  <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
-    <label class="btn btn-primary">
-      <input type="radio" [value]="1"> 1
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" value="2"> 2
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" [value]="3"> 3
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" [value]="4"> 4
-    </label>
-    <label class="btn btn-primary">
-      <input type="radio" [value]="5"> 5
-    </label>
+        <div class="col-xs-12">
+          <h4>סל פעילויות</h4>
+        </div>
+        <div class="col-xs-12">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span class="tag tag-default tag-pill pull-xs-left">14</span>
+              Cras justo odio
+            </li>
+            <li class="list-group-item">
+              <span class="tag tag-default tag-pill pull-xs-left">2</span>
+              Dapibus ac facilisis in
+            </li>
+            <li class="list-group-item">
+              <span class="tag tag-default tag-pill pull-xs-left">1</span>
+              Morbi leo risus
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12">
+          <h6>מספר שבועות לתוכנית</h6>
+        </div>
+
+        <div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
+          <label class="btn btn-primary">
+            <input type="radio" [value]="1"> 1
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" value="2"> 2
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" [value]="3"> 3
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" [value]="4"> 4
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" [value]="5"> 5
+          </label>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
+

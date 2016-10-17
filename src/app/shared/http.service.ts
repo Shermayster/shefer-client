@@ -4,6 +4,7 @@
 
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
+import 'rxjs/Rx';
 import { Observable }     from 'rxjs/Observable';
 import {ActivityInterface} from "./activity.interface";
 @Injectable()

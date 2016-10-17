@@ -14,4 +14,6 @@ import {ActivityInterface} from "../../../shared/activity.interface";
 export class ProgramCartComponent {
   @Input() activity:ActivityInterface;
   model = 1;
+
+
 }

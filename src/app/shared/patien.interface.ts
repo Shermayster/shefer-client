@@ -5,7 +5,7 @@ export class PatientBase {
   patientId:number;
   doctorId:number;
   password:number;
-  contact:ParentContact;
+  parentContact:ParentContact;
   program:ActivitiesProgram[];
 }
 

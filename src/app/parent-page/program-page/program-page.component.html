@@ -7,7 +7,7 @@
           <template ngbTabContent>
             <div class="card row flex-items-xs-around">
               <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge3">
-                <activity-component [activity]="activity"></activity-component>
+                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
               </div>
             </div>
           </template>
@@ -16,7 +16,7 @@
           <template ngbTabContent>
             <div class="card row flex-items-xs-around">
               <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge4">
-                <activity-component [activity]="activity"></activity-component>
+                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
               </div>
             </div>
           </template>
@@ -25,7 +25,7 @@
           <template ngbTabContent>
             <div class="card row flex-items-xs-around">
               <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge5">
-                <activity-component [activity]="activity"></activity-component>
+                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
               </div>
             </div>
           </template>

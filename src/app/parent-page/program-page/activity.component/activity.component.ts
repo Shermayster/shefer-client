@@ -2,7 +2,7 @@
  * Created by Pavel on 04/10/2016.
  */
 
-import {Component} from "@angular/core";
+import {Component, Output, EventEmitter} from "@angular/core";
 import {Input} from "@angular/core/src/metadata/directives";
 import {ActivityInterface} from "../../../shared/activity.interface";
 @Component({
@@ -12,5 +12,11 @@ import {ActivityInterface} from "../../../shared/activity.interface";
 })
 export class ActivityComponent {
   @Input() activity:ActivityInterface;
+  @Output() valueUpdated = new EventEmitter;
   showFreq:boolean = false;
+
+  changeValue(e) {
+    console.log('value changes: ', e);
+    this.valueUpdated.emit(e)
+  }
 }

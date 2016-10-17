@@ -69,12 +69,12 @@
         <div class="card-block">
           <h4 class="card-title">    צפייה בהתקדמות ביצוע הפעילויות</h4>
         </div>
-        <ul class="list-group list-unstyled">
+       <!-- <ul class="list-group list-unstyled">
           <li *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>
           <li *ngIf="activitiesResponse.notCooperating>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא שיתף פעולה מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>
           <li *ngIf="activitiesResponse.partialExecution>0"><span>{{activitiesResponse.partialExecution}}</span>  בוצע חלקית מתוך {{activitiesResponse.overallActivities}} </li>
           <li *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</li>
-        </ul>
+        </ul>-->
         <div class="card-block">
           <a (click)="changeProgram()" class="btn btn-primary">שינוי תוכנית</a>
         </div>
@@ -109,6 +109,9 @@
     </template>
   </ngb-tab>
 </ngb-tabset>
+
+
+
 <!--<div *ngIf="tabNumber === 1" class="card" >
     <form action="" *ngIf="patient" #patientForm="ngForm" (ngSubmit)="onSubmit()">
         <h3 class="card-title">משפחת {{patient.lastFamily}}</h3>

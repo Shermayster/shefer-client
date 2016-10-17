@@ -1,6 +1,6 @@
 <div >
 <div><span class="activity-title">
-  {{activity.ActivityName}}
+  {{activity.activityName}}
 </span>
   <i class="material-icons"
      ngbPopover="
@@ -19,7 +19,7 @@
 </div>
 
 <div>
- <input type="number" min="0" max="14" (focus)="showFreq = true" (blur)="showFreq = false">
+ <input type="number" min="0" max="14" (change)="changeValue($event)" (focus)="showFreq = true" (blur)="showFreq = false">
   <br>
   <span  class="activity-freq-title" [hidden]="!showFreq"> מספר פעילויות לשבוע </span>
 </div>

@@ -32,7 +32,7 @@ export class ParentPage implements OnInit, OnDestroy {
       this.sub = this.route.params.subscribe(params => {
           let id = +params['id'];
           this.patient = this.patientData._patientData;
-          this.contact = this.patient.contact;
+          this.contact = this.patient.parentContact;
           //let progarm:ActivitiesProgram[] = this.patient.program;
           //this.activitiesResponse = this.getActivitiesCalc(progarm);
         },

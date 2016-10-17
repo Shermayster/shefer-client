@@ -1,6 +1,5 @@
 /*
 library imports
-
 */
 @import "../../node_modules/bootstrap/scss/bootstrap";
 //components imports
@@ -33,7 +32,6 @@ input[type="text"] {
 .center {
     text-align: center;
 }
-
 .side-menu {
     background-color: $dark-color;
     height: 100vh;
@@ -46,6 +44,7 @@ input[type="text"] {
         }
     }
 }
+
 .activity-card {
   text-align: center;
   padding: 1rem 0;

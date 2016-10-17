@@ -26,4 +26,7 @@ export class ProgramPageComponent {
         this.activitiesAge5 = this.dataService.orderActivities(activities, '5');
       })
   }
+  updateCart(e) {
+    console.log('event updated ', e);
+  }
 }
