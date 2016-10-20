@@ -19,6 +19,8 @@ export class ActivityComponent {
   changeValue(e) {
     let patientActivity:patientActivityList = new patientActivityList;
     patientActivity.activityId = this.activity.activityID;
+    patientActivity.activityName = this.activity.activityName;
+    patientActivity.activityType = this.activity.activityType;
     patientActivity.frequency = e.target.value;
     console.log('value changes: ', patientActivity);
     this.valueUpdated.emit(patientActivity)

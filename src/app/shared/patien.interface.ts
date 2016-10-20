@@ -2,10 +2,10 @@
  * Created by novliza86 on 29.8.2016.
  */
 export class PatientBase {
-  patientId:number;
+  patientID:number;
   doctorId:number;
   password:number;
-  parentContact:ParentContact;
+  contact:ParentContact;
   program:ActivitiesProgram[];
 }
 
@@ -37,4 +37,6 @@ export class patientActivityList {
   programId:number
   activityId:number;
   frequency:number;
+  activityName:string;
+  activityType:string;
 }

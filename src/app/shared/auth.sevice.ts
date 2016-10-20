@@ -31,7 +31,8 @@ export class AuthService {
         res => {
           if(res.ok === true) {
             let data = res.json();
-            let value:UserBase = data.results[0].data[0];
+            //let value:UserBase = data.results[0].data[0];
+            let value:UserBase = data;
             //set current doctor
             this.dataService.setDoctor(value);
             this.router.navigate(['protected']);

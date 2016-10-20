@@ -11,9 +11,14 @@
     </thead>
     <tbody>
     <tr *ngFor="let patient of data.patients">
-      <th scope="row">{{patient.lastFamily}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></th>
+
+      <th scope="row">{{patient.contact.lastName}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></th>
       <td><ul class="list-unstyled">
-        <li *ngFor="let activity of patient.activities let i = index">{{i+1}} {{activity.activityName}}</li>
+        <li *ngFor="let program of patient.program let i = index">
+          Program Status: {{program.status}}
+         <!-- <ul class="list-unstyled">
+            <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
+          </ul>-->
       </ul></td>
       <td><i class="material-icons">insert_drive_file</i></td>
       <td><i class="material-icons">settings_applications</i></td>

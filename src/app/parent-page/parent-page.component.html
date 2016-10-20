@@ -7,7 +7,7 @@
   <ngb-tab title="ביצוע הפעילויות">
     <template ngbTabContent>
       <div class="card">
-        <h3 class="card-title">משפחת {{patient.lastFamily}}</h3>
+        <h3 class="card-title">משפחת {{contact.lastName}}</h3>
         <form action="" *ngIf="patient" #patientForm="ngForm" (ngSubmit)="onSubmit()">
           <div class="card-block">
             <input type="checkbox" id="makeEditableCheckbox" (click)="makeEditable()">
@@ -67,7 +67,7 @@
     <template ngbTabContent>
       <div class="card">
         <div class="card-block">
-          <h4 class="card-title">    צפייה בהתקדמות ביצוע הפעילויות</h4>
+          <h4 class="card-title">   צפייה בהתקדמות ביצוע הפעילויות</h4>
         </div>
        <!-- <ul class="list-group list-unstyled">
           <li *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>

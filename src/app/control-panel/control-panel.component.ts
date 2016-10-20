@@ -20,7 +20,7 @@ export class ControlPanelComponent implements OnChanges {
   }
   onParentSelect(parent) {
     this.dataService.setPatient(parent);
-    this.router.navigate(['/parent', parent.id]);
+    this.router.navigate(['/parent', parent.patientID]);
   }
 
 }

@@ -32,7 +32,7 @@ export class ParentPage implements OnInit, OnDestroy {
       this.sub = this.route.params.subscribe(params => {
           let id = +params['id'];
           this.patient = this.patientData._patientData;
-          this.contact = this.patient.parentContact;
+          this.contact = this.patient.contact;
           //let progarm:ActivitiesProgram[] = this.patient.program;
           //this.activitiesResponse = this.getActivitiesCalc(progarm);
         },
@@ -67,7 +67,7 @@ export class ParentPage implements OnInit, OnDestroy {
   }
   responseRoute() {
     console.log('navigate');
-    this.router.navigate(['parent/response/', this.patient.patientId]);
+    this.router.navigate(['parent/response/', this.patient.patientID]);
   }
 
   goBack(): void {
@@ -82,6 +82,6 @@ export class ParentPage implements OnInit, OnDestroy {
   }
   //navigate to program page
   changeProgram() {
-    this.router.navigate(['parent/program-page/', this.patient.patientId]);
+    this.router.navigate(['parent/program-page/', this.patient.patientID]);
   }
 }
