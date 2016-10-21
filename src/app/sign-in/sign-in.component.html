@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="greetings">
+<!--<div class="container">-->
+<!--  <div class="greetings">
   <h2>
     ברוכים הבאים לאתר הדרכת הורים
   </h2>
@@ -7,8 +7,8 @@
     אתר המסייע למטפל בריפוי בעיסוק להדריך הורים לתרגל עם ילדיהם תרגילים בריפוי בעיסוק
   </strong>
   </p>
-  </div>
-  <div class="sign-in-form">
+  </div>-->
+ <!-- <div class="sign-in-form">
     <h4>כניסה למערכת</h4>
     <form [formGroup]="signinForm" (submit)="onSubmit()">
       <div class="form-group">
@@ -23,5 +23,28 @@
       <span *ngIf="showError"  class="">אחד הנתונים שגויים</span>
     </form>
   </div>
-</div>
+</div>-->
+<div class="centered">
+  <div class="demo-card-wide mdl-card mdl-shadow--2dp sign-in-card">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">ברוכים הבאים לאתר הדרכת הורים</h2>
+    </div>
+    <form [formGroup]="signinForm" (submit)="onSubmit()">
+    <div class="mdl-card__supporting-text">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">email</label>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample4">
+          <label class="mdl-textfield__label" for="sample3">password</label>
+        </div>
 
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" type="submit">
+        כניסה למערכת
+      </button>
+    </div>
+  </div>
+    </form>
+</div>

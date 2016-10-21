@@ -1,7 +1,6 @@
 /*
 library imports
 */
-@import "../../node_modules/bootstrap/scss/bootstrap";
 //components imports
 @import "./header/header.component";
 @import "./sign-in/sign-in.component";
@@ -62,6 +61,12 @@ input[type="text"] {
       height: 25.4rem;
     }
   }
+}
+.control-table {
+  table{
+    width: 70rem;
+  }
+
 }
 
 @import "./side-menu/side-menu.component";

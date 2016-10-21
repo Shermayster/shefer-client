@@ -1,3 +1,32 @@
+<div class="centered control-table">
+<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+  <thead>
+  <tr>
+    <th>משפחה</th>
+    <th>פעילויות</th>
+    <th>משובים</th>
+    <th>עדכון תוכנית</th>
+    <th>יצירת קשר</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let patient of data.patients">
+    <td scope="row">{{patient.contact.lastName}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></td>
+    <td><ul class="list-unstyled">
+      <li *ngFor="let program of patient.program let i = index">
+        Program Status: {{program.status}}
+     <!--   &lt;!&ndash; <ul class="list-unstyled">
+        <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
+      </ul>&ndash;&gt;-->
+    </ul></td>
+    <td><i class="material-icons">insert_drive_file</i></td>
+    <td><i class="material-icons">settings_applications</i></td>
+    <td><i class="material-icons">contacts</i></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<!--
 <div class="card">
   <table class="table table-bordered table-hover">
     <thead class="thead-inverse">
@@ -16,9 +45,9 @@
       <td><ul class="list-unstyled">
         <li *ngFor="let program of patient.program let i = index">
           Program Status: {{program.status}}
-         <!-- <ul class="list-unstyled">
+         &lt;!&ndash; <ul class="list-unstyled">
             <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
-          </ul>-->
+          </ul>&ndash;&gt;
       </ul></td>
       <td><i class="material-icons">insert_drive_file</i></td>
       <td><i class="material-icons">settings_applications</i></td>
@@ -27,4 +56,5 @@
     </tbody>
   </table>
 </div>
+-->
 
