@@ -1,5 +1,7 @@
-<div class="centered control-table">
-<table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp">
+<div class="centered control-table card card-block card-container">
+  <h1>לוח בקרה</h1>
+  <button type="button" class="btn btn-primary" (click)="addFamily()">להוסיף משפחה</button>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>משפחה</th>
@@ -12,13 +14,24 @@
   <tbody>
   <tr *ngFor="let patient of data.patients">
     <td scope="row">{{patient.contact.lastName}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></td>
-    <td><ul class="list-unstyled">
-      <li *ngFor="let program of patient.program let i = index">
-        Program Status: {{program.status}}
-     <!--   &lt;!&ndash; <ul class="list-unstyled">
-        <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
-      </ul>&ndash;&gt;-->
-    </ul></td>
+    <td>
+      <div *ngFor="let program of patient.program let i = index">
+        <div *ngIf="program.status === true">
+          <ul class="list-unstyled mdl-list">
+            <li class="mdl-list__item" *ngFor="let activity of program.patientActivityList" >
+            <!--<span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</span>
+            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.notCooperating>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא שיתף פעולה מתוך {{activitiesResponse.overallActivities}}  פעילויות</span>
+            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.partialExecution>0"><span>{{activitiesResponse.partialExecution}}</span>  בוצע חלקית מתוך {{activitiesResponse.overallActivities}} </span>
+            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</span>-->
+              <span class="mdl-list__item-primary-content" >{{activity.activityId}}</span>
+              <!--   &lt;!&ndash; <ul class="list-unstyled">
+                 <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
+               </ul>&ndash;&gt;-->
+            </li>
+          </ul>
+        </div>
+      </div>
+      </td>
     <td><i class="material-icons">insert_drive_file</i></td>
     <td><i class="material-icons">settings_applications</i></td>
     <td><i class="material-icons">contacts</i></td>
@@ -26,35 +39,3 @@
   </tbody>
 </table>
 </div>
-<!--
-<div class="card">
-  <table class="table table-bordered table-hover">
-    <thead class="thead-inverse">
-    <tr>
-      <th>משפחה</th>
-      <th>פעילויות</th>
-      <th>משובים</th>
-      <th>עדכון תוכנית</th>
-      <th>יצירת קשר</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let patient of data.patients">
-
-      <th scope="row">{{patient.contact.lastName}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></th>
-      <td><ul class="list-unstyled">
-        <li *ngFor="let program of patient.program let i = index">
-          Program Status: {{program.status}}
-         &lt;!&ndash; <ul class="list-unstyled">
-            <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
-          </ul>&ndash;&gt;
-      </ul></td>
-      <td><i class="material-icons">insert_drive_file</i></td>
-      <td><i class="material-icons">settings_applications</i></td>
-      <td><i class="material-icons">contacts</i></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
--->
-

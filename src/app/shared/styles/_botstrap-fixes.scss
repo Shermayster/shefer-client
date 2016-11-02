@@ -14,13 +14,13 @@
 .nav-tabs .nav-item {
   float: right;
 }
-
-.tab-content > .active {
-  display: flex;
-}
-.container {
-  max-width: 100%;
-  margin: 1rem;
+.table-rtl {
+  th {
+    text-align: right;
+  }
+  td {
+    text-align: right;
+  }
 }
 .list-group {
   margin-right: 0;

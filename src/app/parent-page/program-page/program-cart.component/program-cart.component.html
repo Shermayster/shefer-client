@@ -7,17 +7,30 @@
           <h4>סל פעילויות</h4>
         </div>
         <div class="col-xs-12">
-          <ul class="list-group" *ngIf="activityProgram.patientActivityList">
+         <!-- <ul class="list-group" *ngIf="activityProgram.patientActivityList">
             <li class="list-group-item" *ngFor="let activity of activityProgram.patientActivityList">
               <span class="tag tag-default tag-pill pull-xs-left">{{activity.frequency}}</span>
              {{activity.activityName}}
             </li>
-          </ul>
+          </ul>-->
+          <table class="table table-sm cart-table ">
+            <thead>
+            <tr>
+              <th>פעולה</th>
+              <th>תדירות</th>
+            </tr>
+            </thead>
+            <tbody  *ngIf="activityProgram.patientActivityList">
+            <tr *ngFor="let activity of activityProgram.patientActivityList">
+              <td>{{activity.activityName}}</td>
+              <td>{{activity.frequency}}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-xs-12">
           <h6>מספר שבועות לתוכנית</h6>
         </div>
-
         <div [(ngModel)]="model" (change)="activityProgram.duration = model" ngbRadioGroup name="radioBasic">
           <label class="btn btn-primary">
             <input type="radio" [value]="1"> 1

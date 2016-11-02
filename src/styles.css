@@ -11,7 +11,7 @@ library imports
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 40rem; }
+  min-height: 30rem; }
 
 input {
   direction: ltr; }
@@ -73,12 +73,27 @@ input[type="text"] {
   align-content: center;
   height: 7rem; }
 
-.activity-program .tab-content .active {
-  display: flex;
-  height: 25.4rem; }
-
 .control-table table {
   width: 70rem; }
+
+.card-container {
+  width: 80rem;
+  margin: 1rem auto; }
+
+.parent-tabs {
+  width: 50rem;
+  margin: 1rem auto; }
+  .parent-tabs .tab-content .tab-pane.active {
+    display: block; }
+
+.table-cell-name {
+  max-width: 8rem; }
+
+.table-cell-description {
+  max-width: 25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 .side-menu {
   padding-top: 1rem; }
@@ -115,12 +130,10 @@ input[type="text"] {
 .nav-tabs .nav-item {
   float: right; }
 
-.tab-content > .active {
-  display: flex; }
-
-.container {
-  max-width: 100%;
-  margin: 1rem; }
+.table-rtl th {
+  text-align: right; }
+.table-rtl td {
+  text-align: right; }
 
 .list-group {
   margin-right: 0;

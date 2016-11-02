@@ -13,4 +13,8 @@ variables
 .list-group li {
   background-color: transparent; }
 
+.cart-table th {
+  font-size: 1rem;
+  font-weight: 400; }
+
 /*# sourceMappingURL=program-cart.component.css.map */

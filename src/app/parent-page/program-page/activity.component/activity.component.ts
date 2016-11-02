@@ -13,7 +13,6 @@ import {patientActivityList} from "../../../shared/patien.interface";
 })
 export class ActivityComponent {
   @Input() activity:ActivityInterface;
-  @Output() valueUpdated = new EventEmitter;
   showFreq:boolean = false;
 
   changeValue(e) {
@@ -23,6 +22,6 @@ export class ActivityComponent {
     patientActivity.activityType = this.activity.activityType;
     patientActivity.frequency = e.target.value;
     console.log('value changes: ', patientActivity);
-    this.valueUpdated.emit(patientActivity)
+    //this.valueUpdated.emit(patientActivity)
   }
 }

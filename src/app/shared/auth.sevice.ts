@@ -8,6 +8,7 @@ import 'rxjs/add/observable/of';
 import {DataService, DoctorData} from "./data.service";
 import {HttpService} from "./http.service";
 import {PartialObserver} from "rxjs/Observer";
+import {error} from "util";
 /**
  *
  */
@@ -25,20 +26,23 @@ export class AuthService {
   /**check user input to sign user
    *
    */
-  signinUser(values):void {
+  signinUser(values):boolean {
+    let bool = false;
      this.httpService.getDataFromServer(values)
       .subscribe(
         res => {
-          if(res.ok === true) {
-            let data = res.json();
+          if(res){
+            let data = res;
             //let value:UserBase = data.results[0].data[0];
             let value:UserBase = data;
             //set current doctor
             this.dataService.setDoctor(value);
             this.router.navigate(['protected']);
             this.getAuth();
-          }else {
-            throw 'http error'
+            bool = true
+          }
+           else {
+            bool = false
           }
            //this.checkUser(values,res.results[0].data)
 
@@ -55,6 +59,7 @@ export class AuthService {
 
         }
       );
+    return bool;
   }
 
   /**compare inputs to data

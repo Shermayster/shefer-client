@@ -54,19 +54,34 @@ input[type="text"] {
   height: 7rem;
 
 }
-.activity-program {
-  .tab-content {
-    .active {
-      display: flex;
-      height: 25.4rem;
-    }
-  }
-}
 .control-table {
   table{
     width: 70rem;
   }
-
+}
+.card-container {
+  width: 80rem;
+  margin: 1rem auto;
+}
+.parent-tabs {
+  width: 50rem;
+  margin: 1rem auto;
+  .tab-content{
+    .tab-pane {
+      &.active {
+        display: block;
+      }
+  }
+  }
+}
+.table-cell-name {
+  max-width: 8rem;
+}
+.table-cell-description {
+  max-width: 25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @import "./side-menu/side-menu.component";

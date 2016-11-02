@@ -1,32 +1,80 @@
+<div class="container">
 <h1>עדכון תוכנית</h1>
-<div class="col-xs-12">
   <div class="row">
-    <div class="col-xs-9 activity-program">
+    <div class="col-xs-8">
       <ngb-tabset *ngIf="activitiesList">
         <ngb-tab title="גילאי 2-3">
           <template ngbTabContent>
-            <div class="card row flex-items-xs-around">
-              <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge3">
-                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
+            <div class="card">
+            <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
+            <table class="table table-bordered table-hover table-sm table-rtl">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>שם הפעולה</th>
+                <th>פירוט</th>
+                <th>תדירות שבועית</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let activity of activitiesAge3; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td class="table-cell-name">{{activity.activityName}}</td>
+                <td class="table-cell-description"> {{activity.description}}</td>
+                <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+              </tr>
+              </tbody>
+            </table>
               </div>
-            </div>
           </template>
         </ngb-tab>
         <ngb-tab title="גילאי 4">
           <template ngbTabContent>
-            <div class="card row flex-items-xs-around">
-              <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge4">
-                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
-              </div>
+            <div class="card">
+              <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
+              <table class="table table-bordered table-hover table-sm table-rtl">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>שם הפעולה</th>
+                  <th>פירוט</th>
+                  <th>תדירות שבועית</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let activity of activitiesAge4; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td class="table-cell-name">{{activity.activityName}}</td>
+                  <td class="table-cell-description"> {{activity.description}}</td>
+                  <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </template>
         </ngb-tab>
         <ngb-tab title="גילאי 5+">
           <template ngbTabContent>
-            <div class="card row flex-items-xs-around">
-              <div class="card col-xs-2 activity-card row flex-items-xs-middle"  *ngFor="let activity of activitiesAge5">
-                <activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>
-              </div>
+            <div class="card">
+              <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
+              <table class="table table-bordered table-hover table-sm table-rtl">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>שם הפעולה</th>
+                  <th>פירוט</th>
+                  <th>תדירות שבועית</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let activity of activitiesAge5; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td class="table-cell-name">{{activity.activityName}}</td>
+                  <td class="table-cell-description"> {{activity.description}}</td>
+                  <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </template>
         </ngb-tab>

@@ -2,6 +2,7 @@ import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {UserBase} from "../shared/user.interface";
 import {Router} from "@angular/router";
 import {DataService} from "../shared/data.service";
+import {PatientBase} from "../shared/patien.interface";
 
 @Component({
   selector: 'app-control-panel',
@@ -21,6 +22,11 @@ export class ControlPanelComponent implements OnChanges {
   onParentSelect(parent) {
     this.dataService.setPatient(parent);
     this.router.navigate(['/parent', parent.patientID]);
+  }
+  addFamily() {
+    let parent = new PatientBase;
+    this.dataService.setPatient(parent);
+    this.router.navigate(['/parent', 'new']);
   }
 
 }

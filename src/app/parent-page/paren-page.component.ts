@@ -21,6 +21,7 @@ import {ParentService, ActivitiesResponse} from "./parent.service";
 export class ParentPage implements OnInit, OnDestroy {
   private sub: Subscription;
   tabNumber:number = 2;
+  isNew:boolean = false;
   comments:boolean = false;
   editable:boolean = false;
   contact:ParentContact;
@@ -30,7 +31,14 @@ export class ParentPage implements OnInit, OnDestroy {
                public patientData:PatientData, public authService:AuthService, private parentService:ParentService) { }
     ngOnInit () {
       this.sub = this.route.params.subscribe(params => {
-          let id = +params['id'];
+        console.log(params)
+        if(params){
+          let id = params['id'];
+          if(String(id) === "new") {
+            this.isNew = true;
+            this.editable = true;
+          }
+        }
           this.patient = this.patientData._patientData;
           this.contact = this.patient.contact;
           //let progarm:ActivitiesProgram[] = this.patient.program;
@@ -56,14 +64,24 @@ export class ParentPage implements OnInit, OnDestroy {
    */
   onSubmit() {
     //todo update post command
-    console.log('submit data', this.contact);
-    this.goBack();
+    this.isNew ? this.addFamily() : this.updateContact();
+    //console.log('submit data', this.contact);
+    //this.goBack();
   }
   /**cancel changes in form
    *
    */
   onCancel() {
     this.goBack();
+  }
+  addFamily() {
+    this.patient.doctorId = this.dataService.doctorData._doctorData.doctorId;
+    this.router.navigate(['parent/program-page/', "new"]);
+   console.log('add family ', this.patient)
+
+  }
+  updateContact() {
+    console.log('update contact', this.contact);
   }
   responseRoute() {
     console.log('navigate');

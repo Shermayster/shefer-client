@@ -7,6 +7,7 @@ import {Http} from "@angular/http";
 import 'rxjs/Rx';
 import { Observable }     from 'rxjs/Observable';
 import {ActivityInterface} from "./activity.interface";
+import {error} from "util";
 @Injectable()
 
 export class HttpService {
@@ -15,7 +16,7 @@ export class HttpService {
   private  doctorsUrl = "app/mock/doctors.json"
   private postProgramApi = 'http://localhost:53560/api/Program'
   //private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
-  private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
+  private serverGetDoctor = "http://localhost:53560/api/Email?"
   private  activitiesUrl = "http://localhost:53560/api/Activity"
   constructor(private http:Http) {}
 
@@ -24,7 +25,9 @@ export class HttpService {
    * @returns {Observable<R>}
    */
   getDataFromServer(value) {
-   return this.http.get(this.serverGetDoctor)
+   return this.http.get(this.serverGetDoctor+'Email='+value.email + '&Password='+value.password)
+     .map(res => res.json())
+     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   postDatatoServer() {
