@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {AppState} from "./app.service";
-import {DoctorData, PatientData} from "./shared/data.service";
+import {DoctorData, PatientData, DataService} from "./shared/data.service";
 import {AuthService, AppAuth} from "./shared/auth.sevice";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
@@ -13,7 +13,14 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnChanges{
   isAuth:boolean = false;
 
-  constructor(public appState: AppState, private authService:AuthService, private router: Router, public appAuth:AppAuth) { }
+  constructor(public appState: AppState, private dataService: DataService, private router: Router, public appAuth:AppAuth) { }
+
+  ngOnInit() {
+    let localData =   JSON.parse(localStorage.getItem('doctorData'));
+    if(localData) {
+      this.dataService.setDoctor(localData);
+    }
+  }
   ngOnChanges() {
     this.isAuth = this.appAuth._authState;
   }

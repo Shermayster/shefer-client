@@ -37,6 +37,7 @@ export class AuthService {
             let value:UserBase = data;
             //set current doctor
             this.dataService.setDoctor(value);
+            localStorage.setItem('doctorData', JSON.stringify(value))
             this.router.navigate(['protected']);
             this.getAuth();
             bool = true
@@ -44,19 +45,6 @@ export class AuthService {
            else {
             bool = false
           }
-           //this.checkUser(values,res.results[0].data)
-
-             /*  (value:UserBase) => {
-                 if(value) {
-                   //set current doctor
-                   this.dataService.setDoctor(value);
-                   this.router.navigate(['protected']);
-                   this.getAuth();
-                 } else{
-                   //todo: write response to user
-                 }
-               }*/
-
         }
       );
     return bool;
@@ -109,6 +97,6 @@ export class AuthService {
   }
   logOut() {
     //todo: handle logout function
-
+    this.dataService.cleanData()
   }
 }

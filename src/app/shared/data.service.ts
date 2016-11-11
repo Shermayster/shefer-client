@@ -26,6 +26,7 @@ export class DataService {
   setDoctor(data:UserBase) {
     this.doctor = data;
     this.doctorData._doctorData = data;
+    localStorage.setItem('doctor', JSON.stringify(data));
   }
 
   /**return doctor data
@@ -34,6 +35,7 @@ export class DataService {
    */
   getDoctorData():UserBase {
     return this.doctorData._doctorData;
+
   }
 
   /** returns patient data
@@ -79,6 +81,11 @@ export class DataService {
       }
     })
     return programActivities;
+  }
+
+  //add new family to local data
+  addFamilyToLocalData(family: PatientBase) {
+    this.doctorData._doctorData.patients.push(family);
   }
 
 }

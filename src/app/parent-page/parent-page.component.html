@@ -44,6 +44,7 @@
               </table>
             </div>
             <div class="card-block">
+              <!-- -->
               <button class="btn btn-outline-primary" type="submit" *ngIf="!isNew" [disabled]="!patientForm.form.valid">שמירה</button>
               <button class="btn btn-outline-primary" type="submit" *ngIf="isNew" [disabled]="!patientForm.form.valid">המשך</button>
               <button (click)="onCancel()" type="reset" class="btn btn-outline-secondary">ביטול</button>
