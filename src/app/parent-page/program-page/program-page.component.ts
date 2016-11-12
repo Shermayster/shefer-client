@@ -66,7 +66,7 @@ export class ProgramPageComponent {
     }
   }
   addProgram() {
-    this.isNew ?  this.addFamily : this.updateProgram
+    this.isNew ? this.addFamily : this.updateProgram
 
   }
   //add program to new family and send data to server
