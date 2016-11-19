@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 import { HttpService } from '../../shared/http.service';
 import { ActivityInterface } from '../../shared/activity.interface';
 import { DataService, PatientData } from '../../shared/data.service';
-import { ActivitiesProgram, patientActivityList, PatientBase } from '../../shared/patien.interface';
+import { ActivitiesProgram, patientActivity, PatientBase } from '../../shared/patien.interface';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'program-page',
@@ -42,7 +42,7 @@ export class ProgramPageComponent {
 
   }
   updateCart(activity, value) {
-    let patientActivity: patientActivityList = new patientActivityList;
+    /*let patientActivity: patientActivity = new patientActivity;
     patientActivity.activityId = activity.activityID;
     patientActivity.activityName = activity.activityName;
     patientActivity.activityType = activity.activityType;
@@ -63,7 +63,7 @@ export class ProgramPageComponent {
       else {
         this.activityProgram.patientActivityList.push(patientActivity);
       }
-    }
+    }*/
   }
   addProgram() {
     this.isNew ? this.addFamily : this.updateProgram

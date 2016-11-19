@@ -58,7 +58,7 @@ export class ActivitiesProgram {
   startDay:string;
   duration:number;
   currentWeek:number;
-  patientActivityList:patientActivityList[];
+  patientActivityList:patientActivity[];
   constructor(program: {
     programID?:number,
     patientId?:number,
@@ -75,15 +75,35 @@ export class ActivitiesProgram {
     this.currentWeek = program.currentWeek || null;
   }
 }
-export class patientActivityList {
+export class patientActivity {
   patientActivityId:number;
   activityResponce:string;
   activityFeedback:string;
   activityStatus:string;
-  programId:number
+  programId:number;
   activityId:number;
   frequency:number;
   activityName:string;
   activityType:string;
-
+  constructor(activity: {
+    patientActivityId?:number,
+    activityResponce?:string,
+    activityFeedback?:string,
+    activityStatus?:string,
+    programId?:number,
+    activityId?:number,
+    frequency?:number,
+    activityName?:string,
+    activityType?:string
+  } = {}) {
+    this.patientActivityId = activity.patientActivityId || null;
+    this.activityResponce = activity.activityResponce || null;
+    this.activityFeedback = activity.activityFeedback || null;
+    this.activityStatus = activity.activityStatus || null;
+    this.programId = activity.programId || null;
+    this.activityId = activity.activityId || null;
+    this.frequency = activity.frequency || null;
+    this.activityName = activity.activityName || null;
+    this.activityType = activity.activityType || null;
+  }
 }

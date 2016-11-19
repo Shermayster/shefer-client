@@ -28,6 +28,11 @@ import {AuthGuard} from "./shared/auth.guard";
 import {ProgramPageComponent} from "./parent-page/program-page/program-page.component";
 import {ActivityComponent} from "./parent-page/program-page/activity.component/activity.component";
 import {ProgramCartComponent} from "./parent-page/program-page/program-cart.component/program-cart.component";
+import {PanelModule} from "primeng/components/panel/panel";
+import {SharedModule} from "primeng/components/common/shared";
+import {DataTableModule} from "primeng/components/datatable/datatable";
+import {Ng2TableModule} from "ng2-table";
+import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
 
 @NgModule({
   declarations: [
@@ -46,7 +51,8 @@ import {ProgramCartComponent} from "./parent-page/program-page/program-cart.comp
     ProgramPageComponent,
     SideMenuComponent,
     ActivityComponent,
-    ProgramCartComponent
+    ProgramCartComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,10 @@ import {ProgramCartComponent} from "./parent-page/program-page/program-cart.comp
     ReactiveFormsModule,
     JsonpModule,
     ParentsModule,
+    PanelModule,
+    DataTableModule,
+    SharedModule,
+    Ng2TableModule,
     NgbModule.forRoot(),
     ROUTES
   ],

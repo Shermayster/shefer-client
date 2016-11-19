@@ -20,8 +20,9 @@
           <label for="password">סיסמה</label>
           <input formControlName="password"  class="form-control" #email id="password" type="password">
         </div>
+
         <button [disabled]="!signinForm.valid" class="btn btn-primary" type="submit">כניסה למערכת</button>
-        <span *ngIf="showError"  class="">אחד הנתונים שגויים</span>
+        <span *ngIf="showError"  class="errorMessage">אחד מהנתונים שגויים</span>
       </form>
     </div>
   </div>

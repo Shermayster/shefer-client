@@ -5,7 +5,7 @@
       <template ngbTabContent>
         <div class="card">
           <h3 class="card-title" *ngIf="!isNew">משפחת {{contact.lastName}}</h3>
-          <form action="" *ngIf="patient" #patientForm="ngForm" (ngSubmit)="onSubmit()">
+          <form *ngIf="patient" #patientForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="card-block">
               <input type="checkbox" id="makeEditableCheckbox" *ngIf="!isNew" (click)="makeEditable()">
               <label for="makeEditableCheckbox" *ngIf="!isNew" >עדכון פרטים</label>
@@ -58,45 +58,46 @@
     <ngb-tab title="פרטים אישיים" *ngIf="!isNew">
       <template ngbTabContent>
         <div class="card">
-          <div class="card-block">
+          <div class="card-block title-block">
             <h4 class="card-title">   צפייה בהתקדמות ביצוע הפעילויות</h4>
-          </div>
-          <!-- <ul class="list-group list-unstyled">
-             <li *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>
-             <li *ngIf="activitiesResponse.notCooperating>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא שיתף פעולה מתוך {{activitiesResponse.overallActivities}}  פעילויות</li>
-             <li *ngIf="activitiesResponse.partialExecution>0"><span>{{activitiesResponse.partialExecution}}</span>  בוצע חלקית מתוך {{activitiesResponse.overallActivities}} </li>
-             <li *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</li>
-           </ul>-->
-          <div class="card-block">
             <a (click)="changeProgram()" class="btn btn-primary">שינוי תוכנית</a>
           </div>
+          <div class="card-block">
+            <table class="table table-bordered">
+              <thead>
+              <tr>
+                <th>פעילויות</th>
+                <th>סוג הפעילויות</th>
+                <th>משוב</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let activity of activeProgram.patientActivityList" [ngClass]="{'table-danger': activity.activityFeedback === 'Not Carried Out' || activity.activityFeedback === 'Not Cooperating',
+          'table-warning': activity.activityFeedback === 'Partial Execution'}">
+                <td>
+                  {{activity.activityName}}
+                </td>
+                <!--  <td *ngIf="activity.activityType = 'Food'"> אכילה</td>
+                  <td> {{activity.activityType}}</td>
+                  <td> {{activity.activityType}}</td>
+                  <td> {{activity.activityType}}</td>-->
 
-        </div>
-        <div class="card">
-          <table class="table table-bordered">
-            <thead>
-            <tr>
-              <th>פעילויות</th>
-              <th>סוג הפעילויות</th>
-              <th>משוב</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let activity of patient.activities" [ngClass]="{'table-danger': activity.activityResponse === 'Not Carried Out' || activity.activityResponse === 'Not Cooperating',
-          'table-warning': activity.activityResponse === 'Partial Execution'}">
-              <td>
-                {{activity.activityName}}
-              </td>
-              <td> {{activity.activityGroup}}</td>
-              <td [ngSwitch]="activity.activityResponse">
-                <span *ngSwitchCase="'Done'">בוצע בהצלחה</span>
-                <span *ngSwitchCase="'Not Carried Out'">לא בוצע</span>
-                <span *ngSwitchCase="'Not Cooperating'">לא משתף פעולה</span>
-                <span *ngSwitchCase="'Partial Execution'">בוצה חלקית</span>
-              </td>
-            </tr>
-            </tbody>
-          </table>
+                <td [ngSwitch]="activity.activityType">
+                  <span *ngSwitchCase="'Food'">אוכל</span>
+                  <span *ngSwitchCase="'Not Carried Out'">לא בוצע</span>
+                  <span *ngSwitchCase="'Not Cooperating'">לא משתף פעולה</span>
+                  <span *ngSwitchCase="'Partial Execution'">בוצה חלקית</span>
+                </td>
+                <td [ngSwitch]="activity.activityFeedback">
+                  <span *ngSwitchCase="'Done'">בוצע בהצלחה</span>
+                  <span *ngSwitchCase="'Not Carried Out'">לא בוצע</span>
+                  <span *ngSwitchCase="'Not Cooperating'">לא משתף פעולה</span>
+                  <span *ngSwitchCase="'Partial Execution'">בוצה חלקית</span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </template>
     </ngb-tab>

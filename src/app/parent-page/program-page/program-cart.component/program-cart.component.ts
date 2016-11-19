@@ -5,7 +5,7 @@
 import {Component} from '@angular/core/src/metadata/directives';
 import {Input} from '@angular/core';
 import {ActivityInterface} from '../../../shared/activity.interface';
-import {patientActivityList, ActivitiesProgram} from '../../../shared/patien.interface';
+import {patientActivity, ActivitiesProgram} from '../../../shared/patien.interface';
 @Component({
   selector: 'program-cart',
   templateUrl: './program-cart.component.html',

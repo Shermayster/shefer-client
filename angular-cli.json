@@ -15,6 +15,9 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "../node_modules/primeng/resources/themes/delta/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/material-icons/css/material-icons.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "styles.css"
@@ -44,7 +47,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false
   }
 }

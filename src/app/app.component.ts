@@ -16,10 +16,11 @@ export class AppComponent implements OnChanges{
   constructor(public appState: AppState, private dataService: DataService, private router: Router, public appAuth:AppAuth) { }
 
   ngOnInit() {
-    let localData =   JSON.parse(localStorage.getItem('doctorData'));
-    if(localData) {
+
+    /*if(localStorage.getItem('doctorData')) {
+      let localData = JSON.parse(localStorage.getItem('doctorData'));
       this.dataService.setDoctor(localData);
-    }
+    }*/
   }
   ngOnChanges() {
     this.isAuth = this.appAuth._authState;

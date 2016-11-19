@@ -18,9 +18,6 @@ const appRoutes: Routes = [
   { path:'signup', component:SignUpComponent},
   { path:'signin', component:SignInComponent},
   {path:'protected', component: ProtectedClass, canActivate: [AuthGuard]},
-  {
-    path: 'detail', loadChildren: () => System.import('./+detail')
-  },
   { path: '**',    component: NoContent },
 ];
 

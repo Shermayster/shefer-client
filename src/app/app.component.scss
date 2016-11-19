@@ -28,6 +28,16 @@ input[type="text"] {
     direction:rtl
 }
 
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.greetings {
+  margin-top: 4rem;
+}
 .center {
     text-align: center;
 }
@@ -43,7 +53,12 @@ input[type="text"] {
         }
     }
 }
+.errorMessage {
+  color: $warning-color;
+  float: left;
+  margin-top: .5rem;
 
+}
 .activity-card {
   text-align: center;
   padding: 1rem 0;
@@ -54,11 +69,7 @@ input[type="text"] {
   height: 7rem;
 
 }
-.control-table {
-  table{
-    width: 70rem;
-  }
-}
+
 .card-container {
   width: 80rem;
   margin: 1rem auto;
@@ -84,5 +95,35 @@ input[type="text"] {
   text-overflow: ellipsis;
 }
 
-@import "./side-menu/side-menu.component";
+  .sign-in-section {
+    background-image: url("assets/pics/front-page.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height:100vh;
+    background-position: center;
+
+}
+
+  .control-table {
+    h1 {
+      display: inline-block;
+      margin-left: 4rem;
+      margin-bottom: 3rem;
+    }
+    button {
+      margin-top: -1rem;
+    }
+  }
+  .title-block {
+      .card-title {
+        display: inline-block;
+        margin-left: 1rem;
+      }
+      a {
+        color: #fff !important;
+        margin-top: -.5rem;
+      }
+  }
+
+
 @import "shared/styles/botstrap-fixes";

@@ -1,7 +1,11 @@
-<div class="centered control-table card card-block card-container">
-  <h1>לוח בקרה</h1>
-  <button type="button" class="btn btn-primary" (click)="addFamily()">להוסיף משפחה</button>
-<table class="table table-hover">
+<div class="control-table card card-block card-container">
+    <h1>לוח בקרה</h1>
+    <button type="button" class="btn btn-primary" (click)="addFamily()">להוסיף משפחה</button>
+
+
+
+
+  <table class="table table-hover">
   <thead>
   <tr>
     <th>משפחה</th>
@@ -13,22 +17,21 @@
   </thead>
   <tbody>
   <tr *ngFor="let patient of data.patients">
-    <td scope="row">{{patient.contact.lastName}} <i class="material-icons left" (click)="onParentSelect(patient)">person</i></td>
+    <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <i class="material-icons left" (click)="onParentSelect(patient)">person</i></td>
     <td>
       <div *ngFor="let program of patient.program let i = index">
         <div *ngIf="program.status === true">
-          <ul class="list-unstyled mdl-list">
-            <li class="mdl-list__item" *ngFor="let activity of program.patientActivityList" >
-            <!--<span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.notCarriedOut>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא בוצעו מתוך {{activitiesResponse.overallActivities}}  פעילויות</span>
-            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.notCooperating>0" ><span>{{activitiesResponse.notCarriedOut}}</span>  פעילויות  לא שיתף פעולה מתוך {{activitiesResponse.overallActivities}}  פעילויות</span>
-            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.partialExecution>0"><span>{{activitiesResponse.partialExecution}}</span>  בוצע חלקית מתוך {{activitiesResponse.overallActivities}} </span>
-            <span class="mdl-list__item-primary-content" *ngIf="activitiesResponse.done>0"><span>{{activitiesResponse.done}}</span> בוצע מתוך {{activitiesResponse.overallActivities}}  פעולוית</span>-->
-              <span class="mdl-list__item-primary-content" >{{activity.activityId}}</span>
-              <!--   &lt;!&ndash; <ul class="list-unstyled">
-                 <li *ngfor="let activity of program.patientActivityList">{{activity.activityId}}</li>
-               </ul>&ndash;&gt;-->
+
+          <feedback-component [activity]="program.patientActivityList"></feedback-component>
+         <!-- <ul class="list-unstyled mdl-list">
+            <li class="mdl-list__item"  *ngFor="let activity of " >
+              <feedback-component [activity]="activity"></feedback-component>
+             &lt;!&ndash; <span class="mdl-list__item-primary-content" >{{activity.activityId}}</span>&ndash;&gt;
+              &lt;!&ndash;   &lt;!&ndash; <ul class="list-unstyled">
+                 <li *ngfor="let activity of program.patientActivity">{{activity.activityId}}</li>
+               </ul>&ndash;&gt;&ndash;&gt;
             </li>
-          </ul>
+          </ul>-->
         </div>
       </div>
       </td>
@@ -38,4 +41,6 @@
   </tr>
   </tbody>
 </table>
+
+
 </div>

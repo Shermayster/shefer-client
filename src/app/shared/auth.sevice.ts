@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import {Http, Response} from "@angular/http";
 import { Observable }     from 'rxjs/Observable';
 import {Injectable, EventEmitter} from "@angular/core";
@@ -20,18 +21,19 @@ export class AppAuth {
 export class AuthService {
   userData:any = new EventEmitter<UserBase>();
   private doctorsUrl = "app/mock/doctors.json";
+  showError = new Subject;
+
   constructor(private httpService:HttpService,  private router: Router, public doctorData:DoctorData , private dataService:DataService, public appAuth:AppAuth) { }
 
 
   /**check user input to sign user
    *
    */
-  signinUser(values):boolean {
-    let bool = false;
+  signinUser(values) {
+
      this.httpService.getDataFromServer(values)
       .subscribe(
         res => {
-          if(res){
             let data = res;
             //let value:UserBase = data.results[0].data[0];
             let value:UserBase = data;
@@ -40,14 +42,14 @@ export class AuthService {
             localStorage.setItem('doctorData', JSON.stringify(value))
             this.router.navigate(['protected']);
             this.getAuth();
-            bool = true
-          }
-           else {
-            bool = false
-          }
-        }
-      );
-    return bool;
+            this.showError.next(true);
+
+        }, error => {
+          this.showError.next(false);
+    });
+return this.showError;
+
+
   }
 
   /**compare inputs to data

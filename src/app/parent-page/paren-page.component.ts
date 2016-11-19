@@ -6,7 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {DataService, PatientData} from '../shared/data.service';
 import {Subscription} from 'rxjs';
 import {
-  PatientBase, ParentContact, patientActivityList,
+  PatientBase, ParentContact, patientActivity,
   ActivitiesProgram
 } from '../shared/patien.interface';
 import {AuthService} from '../shared/auth.sevice';
@@ -27,6 +27,7 @@ export class ParentPage implements OnInit, OnDestroy {
   contact: ParentContact;
   activitiesResponse: ActivitiesResponse;
   patient: PatientBase;
+  activeProgram: ActivitiesProgram;
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService,
               public patientData: PatientData, public authService: AuthService, private parentService: ParentService) {
@@ -42,6 +43,7 @@ export class ParentPage implements OnInit, OnDestroy {
           }
           this.patient = this.patientData._patientData;
           this.contact = this.patient.contact;
+          this.activeProgram = this.findActiveProgram(this.patient.program);
           localStorage.setItem('patientData', JSON.stringify(this.patient));
           localStorage.setItem('patientAddress', JSON.stringify(this.contact));
         }
@@ -53,7 +55,7 @@ export class ParentPage implements OnInit, OnDestroy {
    *
    * @param data
    */
-  getActivitiesCalc(data: patientActivityList[]): ActivitiesResponse {
+  getActivitiesCalc(data: patientActivity[]): ActivitiesResponse {
     let response;
     return this.parentService.calcActivities(data);
   }
@@ -115,4 +117,10 @@ export class ParentPage implements OnInit, OnDestroy {
   changeProgram() {
     this.router.navigate(['parent/program-page/', this.patient.patientID]);
   }
+
+  //find active program
+  findActiveProgram(programs: ActivitiesProgram[]):ActivitiesProgram {
+    return programs.filter(program => program.status === true)[0]
+  }
+
 }
