@@ -18,6 +18,7 @@ export class HttpService {
  /* private  doctorsUrl = "http://localhost:53560/api/doctor"*/
   private  doctorsUrl = "app/mock/doctors.json";
   private postProgramApi = 'http://localhost:53560/api/Program';
+  private putProgramApi = 'http://localhost:53560/api/Program';
   //private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
   private serverGetDoctor = "http://localhost:53560/api/Email?";
   private  activitiesUrl = "http://localhost:53560/api/Activity";
@@ -64,8 +65,12 @@ export class HttpService {
   }
   //add program to family
   updateProgram(program) {
-    this.http.post(this.postProgramApi, program )
-      .subscribe(res => console.log(res))
+   return this.http.put(this.putProgramApi+'/'+ program.programID, program, program.programId)
+      .map((res: Response) => {
+        if(res.status === 204) {
+          return true;
+        }
+      })
   }
 
   //add new program

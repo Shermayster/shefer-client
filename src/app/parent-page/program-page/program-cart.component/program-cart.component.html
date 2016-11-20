@@ -18,6 +18,7 @@
             <tr>
               <th>פעולה</th>
               <th>קטגוריה</th>
+              <th>קבוצת גיל</th>
             </tr>
             </thead>
             <tbody  *ngIf="activityProgram.patientActivityList">
@@ -31,6 +32,7 @@
                 </div>
 
               </td>
+              <td>{{activity.group}}</td>
             </tr>
             </tbody>
           </table>

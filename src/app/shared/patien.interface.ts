@@ -82,7 +82,7 @@ export class patientActivity {
   activityStatus:string;
   programId:number;
   activityId:number;
-  frequency:number;
+  activityGroup:number;
   activityName:string;
   activityType:string;
   constructor(activity: {
@@ -92,7 +92,7 @@ export class patientActivity {
     activityStatus?:string,
     programId?:number,
     activityId?:number,
-    frequency?:number,
+    activityGroup?:number,
     activityName?:string,
     activityType?:string
   } = {}) {
@@ -102,7 +102,7 @@ export class patientActivity {
     this.activityStatus = activity.activityStatus || "";
     this.programId = activity.programId || null;
     this.activityId = activity.activityId || null;
-    this.frequency = activity.frequency || null;
+    this.activityGroup = activity.activityGroup || null;
     this.activityName = activity.activityName || null;
     this.activityType = activity.activityType || null;
   }

@@ -53,4 +53,16 @@ export class ParentService {
     });
     return addedActivities;
   }
+
+  //add ids to activities
+  addProgramId(activities:patientActivity[], programId, patientId?) {
+    activities.forEach(activity => {
+      activity.programId = programId;
+      if(patientId) {
+        activity.patientActivityId = patientId;
+      }
+
+    });
+    return activities;
+  }
 }

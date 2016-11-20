@@ -7,7 +7,7 @@ import { HttpService } from '../../shared/http.service';
 import { ActivityInterface } from '../../shared/activity.interface';
 import { DataService, PatientData } from '../../shared/data.service';
 import { ActivitiesProgram, patientActivity, PatientBase } from '../../shared/patien.interface';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ParentService} from "../parent.service";
 @Component({
   selector: 'program-page',
@@ -23,7 +23,7 @@ export class ProgramPageComponent {
   activitiesList: ActivityInterface[];
   activityProgram: ActivitiesProgram;
   //activeProgram: ActivitiesProgram;
-  constructor(private httpService: HttpService, private dataService: DataService,
+  constructor(private httpService: HttpService, private dataService: DataService, private router: Router,
     public patientData: PatientData, private route: ActivatedRoute, private parentService: ParentService ) { }
 
   ngOnInit() {
@@ -51,6 +51,7 @@ export class ProgramPageComponent {
     _patientActivity.activityId = activity.activityID;
     _patientActivity.activityName = activity.activityName;
     _patientActivity.activityType = activity.activityType;
+    _patientActivity.activityGroup = activity.programName;
     if (!this.activityProgram.patientActivityList) {
       this.activityProgram.patientActivityList = [];
       this.activityProgram.patientActivityList.push(_patientActivity);
@@ -78,8 +79,8 @@ export class ProgramPageComponent {
     newFamily.program.push(this.activityProgram);
     newFamily.program[0].currentWeek = 0;
     newFamily.program[0].status = true;
+    //this.httpService.addFamilyToData(newFamily);
 
-    this.httpService.addFamilyToData(newFamily);
   }
 
   // add program to existing family
@@ -87,7 +88,17 @@ export class ProgramPageComponent {
     //this.activityProgram.currentWeek = 0;
     this.activityProgram.patientId = this.patientData._patientData.patientID;
     this.activityProgram.status = true;
-    this.httpService.updateProgram(this.activityProgram);
+    this.activityProgram.patientActivityList = this.parentService.addProgramId(this.activityProgram.patientActivityList,
+      this.activityProgram.programID, this.activityProgram.patientId);
+    this.httpService.updateProgram(this.activityProgram).subscribe(
+      res => {
+        if(res) {
+          this.patient.program[0] = this.activityProgram;// todo: create more dynamic data
+          this.router.navigate(['protected']);
+        }
+      }
+    )
+
   }
 }
 
