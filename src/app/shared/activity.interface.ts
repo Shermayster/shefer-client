@@ -8,5 +8,5 @@ export class ActivityInterface {
   description: string;
   activityType:string;
   programName: string;
-  frequency: number;
+  added: boolean;
 }

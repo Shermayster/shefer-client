@@ -5,7 +5,7 @@ library imports
 @import "./header/header.component";
 @import "./sign-in/sign-in.component";
 @import "./sign-up/sign-up.component";
-
+@import "./shared/styles/botstrap-fixes";
 @import "./shared/styles/variables";
 
 html, body {
@@ -26,6 +26,13 @@ table, th, td {
 }
 input[type="text"] {
     direction:rtl
+}
+
+.navbar-nav .rtl-nav {
+  .nav-item li {
+    float: left !important;
+  }
+
 }
 
 .left {
@@ -112,8 +119,15 @@ input[type="text"] {
     }
     button {
       margin-top: -1rem;
+
+
     }
-  }
+    .edit-btn {
+      font-size: .8rem;
+      padding: .25rem .5rem;
+      margin-top: 0rem;
+    }
+
   .title-block {
       .card-title {
         display: inline-block;
@@ -126,4 +140,7 @@ input[type="text"] {
   }
 
 
-@import "shared/styles/botstrap-fixes";
+  }
+
+
+

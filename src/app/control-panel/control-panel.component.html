@@ -17,7 +17,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let patient of data.patients">
-    <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <i class="material-icons left" (click)="onParentSelect(patient)">person</i></td>
+    <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <button class="edit-btn btn btn-primary left" (click)="onParentSelect(patient)">ערוך</button></td>
     <td>
       <div *ngFor="let program of patient.program let i = index">
         <div *ngIf="program.status === true">

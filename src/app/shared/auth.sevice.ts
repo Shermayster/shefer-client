@@ -39,7 +39,7 @@ export class AuthService {
             let value:UserBase = data;
             //set current doctor
             this.dataService.setDoctor(value);
-            localStorage.setItem('doctorData', JSON.stringify(value))
+            localStorage.setItem('doctorData', JSON.stringify(value));
             this.router.navigate(['protected']);
             this.getAuth();
             this.showError.next(true);

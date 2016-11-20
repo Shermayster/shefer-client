@@ -77,10 +77,6 @@
                 <td>
                   {{activity.activityName}}
                 </td>
-                <!--  <td *ngIf="activity.activityType = 'Food'"> אכילה</td>
-                  <td> {{activity.activityType}}</td>
-                  <td> {{activity.activityType}}</td>
-                  <td> {{activity.activityType}}</td>-->
 
                 <td [ngSwitch]="activity.activityType">
                   <span *ngSwitchCase="'Food'">אוכל</span>

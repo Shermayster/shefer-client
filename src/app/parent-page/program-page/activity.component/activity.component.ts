@@ -20,7 +20,7 @@ export class ActivityComponent {
     patientActivity.activityId = this.activity.activityID;
     patientActivity.activityName = this.activity.activityName;
     patientActivity.activityType = this.activity.activityType;
-    patientActivity.frequency = e.target.value;
+    patientActivity.added = e.target.value;
     console.log('value changes: ', patientActivity);*/
     //this.valueUpdated.emit(patientActivity)
   }

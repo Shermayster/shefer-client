@@ -14,6 +14,7 @@ import {patientActivity, ActivitiesProgram} from '../../../shared/patien.interfa
 
 export class ProgramCartComponent {
   @Input() activityProgram: ActivitiesProgram;
+
   model = 1;
   ngOnInit() {
     this.activityProgram.duration = this.model;

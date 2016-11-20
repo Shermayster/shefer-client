@@ -30,7 +30,7 @@ export class ParentPage implements OnInit, OnDestroy {
   activeProgram: ActivitiesProgram;
 
   constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService,
-              public patientData: PatientData, public authService: AuthService, private parentService: ParentService) {
+              public patientData: PatientData, public authService: AuthService, protected parentService: ParentService) {
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class ParentPage implements OnInit, OnDestroy {
           }
           this.patient = this.patientData._patientData;
           this.contact = this.patient.contact;
-          this.activeProgram = this.findActiveProgram(this.patient.program);
+          this.activeProgram = this.parentService.findActiveProgram(this.patient.program);
           localStorage.setItem('patientData', JSON.stringify(this.patient));
           localStorage.setItem('patientAddress', JSON.stringify(this.contact));
         }
@@ -118,9 +118,6 @@ export class ParentPage implements OnInit, OnDestroy {
     this.router.navigate(['parent/program-page/', this.patient.patientID]);
   }
 
-  //find active program
-  findActiveProgram(programs: ActivitiesProgram[]):ActivitiesProgram {
-    return programs.filter(program => program.status === true)[0]
-  }
+
 
 }

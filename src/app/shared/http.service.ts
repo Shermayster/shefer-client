@@ -16,8 +16,8 @@ import {Router} from "@angular/router";
 export class HttpService {
 /*  private doctorsUrl = "http://beta.randomapi.com/api/c7fd9429af7f9879b873e89b02d93c1d";*/
  /* private  doctorsUrl = "http://localhost:53560/api/doctor"*/
-  private  doctorsUrl = "app/mock/doctors.json"
-  private postProgramApi = 'http://localhost:53560/api/Program'
+  private  doctorsUrl = "app/mock/doctors.json";
+  private postProgramApi = 'http://localhost:53560/api/Program';
   //private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
   private serverGetDoctor = "http://localhost:53560/api/Email?";
   private  activitiesUrl = "http://localhost:53560/api/Activity";
@@ -63,7 +63,7 @@ export class HttpService {
     .map(res => res.json());
   }
   //add program to family
-  createProgram(program) {
+  updateProgram(program) {
     this.http.post(this.postProgramApi, program )
       .subscribe(res => console.log(res))
   }

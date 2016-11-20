@@ -97,9 +97,9 @@ export class patientActivity {
     activityType?:string
   } = {}) {
     this.patientActivityId = activity.patientActivityId || null;
-    this.activityResponce = activity.activityResponce || null;
-    this.activityFeedback = activity.activityFeedback || null;
-    this.activityStatus = activity.activityStatus || null;
+    this.activityResponce = activity.activityResponce || "";
+    this.activityFeedback = activity.activityFeedback || "";
+    this.activityStatus = activity.activityStatus || "";
     this.programId = activity.programId || null;
     this.activityId = activity.activityId || null;
     this.frequency = activity.frequency || null;

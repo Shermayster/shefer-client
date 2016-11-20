@@ -9,7 +9,7 @@
         <div class="col-xs-12">
          <!-- <ul class="list-group" *ngIf="activityProgram.patientActivity">
             <li class="list-group-item" *ngFor="let activity of activityProgram.patientActivity">
-              <span class="tag tag-default tag-pill pull-xs-left">{{activity.frequency}}</span>
+              <span class="tag tag-default tag-pill pull-xs-left">{{activity.added}}</span>
              {{activity.activityName}}
             </li>
           </ul>-->
@@ -17,13 +17,20 @@
             <thead>
             <tr>
               <th>פעולה</th>
-              <th>תדירות</th>
+              <th>קטגוריה</th>
             </tr>
             </thead>
             <tbody  *ngIf="activityProgram.patientActivityList">
             <tr *ngFor="let activity of activityProgram.patientActivityList">
               <td>{{activity.activityName}}</td>
-              <td>{{activity.frequency}}</td>
+              <td>
+                <div [ngSwitch]="activity.activityType">
+                  <span *ngSwitchCase="'Food'">אוכל</span>
+                  <span *ngSwitchCase="'Dressing'">לבוש</span>
+                  <span *ngSwitchDefault>{{activity.activityType}}</span>
+                </div>
+
+              </td>
             </tr>
             </tbody>
           </table>

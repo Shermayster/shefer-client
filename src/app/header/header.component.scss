@@ -1,8 +1,11 @@
-.navbar-nav .nav-item {
 
-}
 .navbar-nav .nav-item + .nav-item {
   margin-right: 1rem;
+  float: right;
+}
+
+.navbar-nav .nav-item {
+  float: right;
 }
 .sign-in-card {
 

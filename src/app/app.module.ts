@@ -33,6 +33,7 @@ import {SharedModule} from "primeng/components/common/shared";
 import {DataTableModule} from "primeng/components/datatable/datatable";
 import {Ng2TableModule} from "ng2-table";
 import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
+import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
     DataTableModule,
     SharedModule,
     Ng2TableModule,
+    CheckboxModule,
     NgbModule.forRoot(),
     ROUTES
   ],

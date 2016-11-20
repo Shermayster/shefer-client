@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, ViewEncapsulation} from '@angular/core';
 import {AppState} from "./app.service";
 import {DoctorData, PatientData, DataService} from "./shared/data.service";
 import {AuthService, AppAuth} from "./shared/auth.sevice";
@@ -7,8 +7,8 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
-
+  templateUrl: './app.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnChanges{
   isAuth:boolean = false;

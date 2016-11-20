@@ -13,7 +13,7 @@
                 <th>#</th>
                 <th>שם הפעולה</th>
                 <th>פירוט</th>
-                <th>תדירות שבועית</th>
+                <th>להוסיף לתוכנית</th>
               </tr>
               </thead>
               <tbody>
@@ -21,7 +21,9 @@
                 <th scope="row">{{i+1}}</th>
                 <td class="table-cell-name">{{activity.activityName}}</td>
                 <td class="table-cell-description"> {{activity.description}}</td>
-                <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+                <td class="center">
+                  <input  type="checkbox"  [(ngModel)]="activity.added" (click)="updateCart(activity, $event.target.checked)">
+                </td>
               </tr>
               </tbody>
             </table>
@@ -38,7 +40,7 @@
                   <th>#</th>
                   <th>שם הפעולה</th>
                   <th>פירוט</th>
-                  <th>תדירות שבועית</th>
+                  <th>להוסיף לתוכנית</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,7 +48,10 @@
                   <th scope="row">{{i+1}}</th>
                   <td class="table-cell-name">{{activity.activityName}}</td>
                   <td class="table-cell-description"> {{activity.description}}</td>
-                  <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+                  <!--<td><input  type="number"   [(ngModel)]="activity.added"></td>-->
+                  <!--<td><input  type="number"   [(ngModel)]="activity.added"></td>-->
+                  <td class="center"><input  type="checkbox"  [(ngModel)]="activity.added" (click)="updateCart(activity, $event.target.checked)"></td>
+                  <!--<td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>-->
                 </tr>
                 </tbody>
               </table>
@@ -63,7 +68,7 @@
                   <th>#</th>
                   <th>שם הפעולה</th>
                   <th>פירוט</th>
-                  <th>תדירות שבועית</th>
+                  <th>להוסיף לתוכנית</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,7 +76,7 @@
                   <th scope="row">{{i+1}}</th>
                   <td class="table-cell-name">{{activity.activityName}}</td>
                   <td class="table-cell-description"> {{activity.description}}</td>
-                  <td><input  type="number" min="0" max="14" (change)="updateCart(activity, $event.target.value)"></td>
+                  <td class="center"><input  type="checkbox"  [(ngModel)]="activity.added" (click)="updateCart(activity, $event.target.checked)"></td>
                 </tr>
                 </tbody>
               </table>
@@ -85,7 +90,7 @@
     </div>
   </div>
   <div>
-    <button type="button" class="btn btn-primary" *ngIf="!isNew" (click)="addProgram()">להוסיף תוכנית</button>
+    <button type="button" class="btn btn-primary" *ngIf="!isNew" (click)="addProgram()">להעדכן תוכנית</button>
     <button type="button" class="btn btn-primary" *ngIf="isNew" (click)="addFamily()">להוסיף תוכנית</button>
 
   </div>
