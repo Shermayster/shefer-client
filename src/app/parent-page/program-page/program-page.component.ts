@@ -28,6 +28,7 @@ export class ProgramPageComponent {
 
   ngOnInit() {
     this.patient = this.patientData._patientData;
+    if(!this.patient.patientID) { this.isNew = true; }
     this.isNew ? this.activityProgram = new ActivitiesProgram() : this.activityProgram = this.parentService.findActiveProgram(this.patient.program);
     this.httpService.getActivitiesFromServer()
       .subscribe((activities: ActivityInterface[]) => {
@@ -51,7 +52,9 @@ export class ProgramPageComponent {
     _patientActivity.activityId = activity.activityID;
     _patientActivity.activityName = activity.activityName;
     _patientActivity.activityType = activity.activityType;
-    _patientActivity.activityGroup = activity.programName;
+    _patientActivity.rationaleCategory = activity.rationaleCategory;
+    _patientActivity.activityNameParent = activity.activityNameParent;
+    _patientActivity.description = activity.description;
     if (!this.activityProgram.patientActivityList) {
       this.activityProgram.patientActivityList = [];
       this.activityProgram.patientActivityList.push(_patientActivity);
@@ -75,12 +78,13 @@ export class ProgramPageComponent {
   }
   //add program to new family and send data to server
   addFamily() {
-    let newFamily: PatientBase = JSON.parse(localStorage.getItem('newPatient'));
-    newFamily.program.push(this.activityProgram);
-    newFamily.program[0].currentWeek = 0;
-    newFamily.program[0].status = true;
-    //this.httpService.addFamilyToData(newFamily);
 
+    this.activityProgram.currentWeek = 0;
+    this.activityProgram.status = true;
+    //this.httpService.addFamilyToData(newFamily);
+    this.patient.program[0] = this.activityProgram;
+    console.log('add family: ', this.patient);
+    debugger
   }
 
   // add program to existing family

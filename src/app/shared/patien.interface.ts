@@ -1,6 +1,4 @@
-/**
- * Created by novliza86 on 29.8.2016.
- */
+
 export class PatientBase {
   patientID:number;
   doctorId:number;
@@ -85,6 +83,9 @@ export class patientActivity {
   activityGroup:number;
   activityName:string;
   activityType:string;
+  rationaleCategory: string;
+  activityNameParent: string;
+  description: string;
   constructor(activity: {
     patientActivityId?:number,
     activityResponce?:string,
@@ -94,7 +95,10 @@ export class patientActivity {
     activityId?:number,
     activityGroup?:number,
     activityName?:string,
-    activityType?:string
+    activityType?:string,
+    rationaleCategory?: string,
+    activityNameParent?: string,
+    description?: string
   } = {}) {
     this.patientActivityId = activity.patientActivityId || null;
     this.activityResponce = activity.activityResponce || "";
@@ -105,5 +109,9 @@ export class patientActivity {
     this.activityGroup = activity.activityGroup || null;
     this.activityName = activity.activityName || null;
     this.activityType = activity.activityType || null;
+    this.rationaleCategory = activity.rationaleCategory || '';
+    this.activityNameParent = activity.activityNameParent || '';
+    this.description = activity.description || '';
+
   }
 }

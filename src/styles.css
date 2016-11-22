@@ -163,4 +163,8 @@ input[type="text"] {
   color: #fff !important;
   margin-top: -.5rem; }
 
+.table-overflow {
+  max-height: 40rem;
+  overflow: auto; }
+
 /*# sourceMappingURL=styles.css.map */

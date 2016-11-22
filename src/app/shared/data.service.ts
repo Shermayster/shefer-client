@@ -26,7 +26,6 @@ export class DataService {
   setDoctor(data:UserBase) {
     this.doctor = data;
     this.doctorData._doctorData = data;
-    localStorage.setItem('doctor', JSON.stringify(data));
   }
 
   /**return doctor data
@@ -76,7 +75,7 @@ export class DataService {
   orderActivities(activities, programName):ActivityInterface[] {
     let programActivities:ActivityInterface[] = [];
     activities.map(activity => {
-      if(activity.programName === programName) {
+      if(activity.groupAge == programName) {
         programActivities.push(activity);
       }
     })

@@ -19,4 +19,9 @@ export class ProgramCartComponent {
   ngOnInit() {
     this.activityProgram.duration = this.model;
   }
+
+  addDuration(value) {
+    debugger
+    this.activityProgram.duration = value;
+  }
 }

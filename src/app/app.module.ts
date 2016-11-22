@@ -30,8 +30,6 @@ import {ActivityComponent} from "./parent-page/program-page/activity.component/a
 import {ProgramCartComponent} from "./parent-page/program-page/program-cart.component/program-cart.component";
 import {PanelModule} from "primeng/components/panel/panel";
 import {SharedModule} from "primeng/components/common/shared";
-import {DataTableModule} from "primeng/components/datatable/datatable";
-import {Ng2TableModule} from "ng2-table";
 import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 
@@ -65,9 +63,7 @@ import {CheckboxModule} from "primeng/components/checkbox/checkbox";
     JsonpModule,
     ParentsModule,
     PanelModule,
-    DataTableModule,
     SharedModule,
-    Ng2TableModule,
     CheckboxModule,
     NgbModule.forRoot(),
     ROUTES

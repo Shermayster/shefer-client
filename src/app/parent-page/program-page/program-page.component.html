@@ -5,7 +5,7 @@
       <ngb-tabset *ngIf="activitiesList">
         <ngb-tab title="גילאי 2-3">
           <template ngbTabContent>
-            <div class="card">
+            <div class="card table-overflow">
             <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
             <table class="table table-bordered table-hover table-sm table-rtl">
               <thead>
@@ -91,7 +91,7 @@
   </div>
   <div>
     <button type="button" class="btn btn-primary" *ngIf="!isNew" (click)="updateProgram()">להעדכן תוכנית</button>
-    <button type="button" class="btn btn-primary" *ngIf="isNew" (click)="addFamily()">להוסיף תוכנית</button>
+    <button type="button" class="btn btn-primary" *ngIf="isNew" (click)="addFamily()">להוסיף משפחה</button>
 
   </div>
 

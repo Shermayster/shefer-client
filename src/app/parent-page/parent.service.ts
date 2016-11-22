@@ -44,14 +44,17 @@ export class ParentService {
 
   //add values to activities object from user object
   addValuesToActivities(activities:ActivityInterface[], patientProgram:ActivitiesProgram ):ActivityInterface[] {
-     let addedActivities = activities.map(activity => {
-      let filteredActivity = patientProgram.patientActivityList.filter(patientActivity => patientActivity.activityId == activity.activityID)[0];
-      if(filteredActivity) {
-        activity.added = true;
-      }
-      return activity;
-    });
-    return addedActivities;
+    if(patientProgram.patientActivityList) {
+      let addedActivities = activities.map(activity => {
+        let filteredActivity = patientProgram.patientActivityList.filter(patientActivity => patientActivity.activityId == activity.activityID)[0];
+        if(filteredActivity) {
+          activity.added = true;
+        }
+        return activity;
+      });
+      return addedActivities;
+    }
+     return activities;
   }
 
   //add ids to activities
