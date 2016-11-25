@@ -17,12 +17,16 @@ export class HttpService {
 /*  private doctorsUrl = "http://beta.randomapi.com/api/c7fd9429af7f9879b873e89b02d93c1d";*/
  /* private  doctorsUrl = "http://localhost:53560/api/doctor"*/
   private  doctorsUrl = "app/mock/doctors.json";
-  private postProgramApi = 'http://localhost:53560/api/Program';
-  private putProgramApi = 'http://localhost:53560/api/Program';
+  private projectUrl='http://projects.telem-hit.net/2016/May-men_HofitPavelOrit/Server/api/';
+  //private projectUrl='http://localhost:53560/api/';
+
+  private postProgramApi = this.projectUrl+'Program';
+  private putProgramApi = this.projectUrl+'Program';
   //private serverGetDoctor = "http://localhost:53560/api/Email?Email=test@test.com&Password=test"
-  private serverGetDoctor = "http://localhost:53560/api/Email?";
-  private  activitiesUrl = "http://localhost:53560/api/Activity";
-  private  addFamilyApi = "http://localhost:53560/api/Patient";
+  //private serverGetDoctor = "http://localhost:53560/api/Email?";
+  private serverGetDoctor = this.projectUrl+"Email?";
+  private  activitiesUrl = this.projectUrl+"Activity";
+  private  addFamilyApi = this.projectUrl+"Patient";
   constructor(private http: Http, private dataService: DataService, private router: Router) {}
 
   /**get data from server
