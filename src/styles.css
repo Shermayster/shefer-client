@@ -20,7 +20,7 @@ library imports
 input {
   direction: ltr; }
 
-.sign-in-form {
+.sign-in-form, .sign-up-form {
   margin: 5rem auto;
   width: 20rem; }
 
@@ -30,7 +30,7 @@ input {
 input {
   direction: ltr; }
 
-.sign-in-form {
+.sign-in-form .sign-up-form {
   margin: 5rem auto;
   width: 20rem; }
 
@@ -138,13 +138,6 @@ input[type="text"] {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
-
-.sign-in-section {
-  background-image: url("assets/pics/front-page.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 100vh;
-  background-position: center; }
 
 .control-table h1 {
   display: inline-block;

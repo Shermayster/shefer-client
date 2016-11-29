@@ -53,6 +53,7 @@ export class ProgramPageComponent {
     _patientActivity.activityName = activity.activityName;
     _patientActivity.activityType = activity.activityType;
     _patientActivity.rationaleCategory = activity.rationaleCategory;
+    _patientActivity.activityGroupAge = activity.groupAge;
     _patientActivity.activityNameParent = activity.activityNameParent;
     _patientActivity.description = activity.description;
     if (!this.activityProgram.patientActivityList) {
@@ -79,17 +80,21 @@ export class ProgramPageComponent {
   //add program to new family and send data to server
   addFamily() {
 
-    this.activityProgram.currentWeek = 0;
+    this.activityProgram.currentWeek = 1;
     this.activityProgram.status = true;
-    //this.httpService.addFamilyToData(newFamily);
     this.patient.program[0] = this.activityProgram;
-    console.log('add family: ', this.patient);
-    debugger
+    this.httpService.addFamilyToData(this.patient).subscribe(
+      res => {
+        this.dataService.addFamilyToLocalData(res);
+        this.router.navigate(['protected']);
+      }
+    )
+
   }
 
   // add program to existing family
   updateProgram() {
-    //this.activityProgram.currentWeek = 0;
+    this.activityProgram.currentWeek = 1;
     this.activityProgram.patientId = this.patientData._patientData.patientID;
     this.activityProgram.status = true;
     this.activityProgram.patientActivityList = this.parentService.addProgramId(this.activityProgram.patientActivityList,

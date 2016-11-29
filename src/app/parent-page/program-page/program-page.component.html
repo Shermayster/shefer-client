@@ -32,7 +32,7 @@
         </ngb-tab>
         <ngb-tab title="גילאי 4">
           <template ngbTabContent>
-            <div class="card">
+            <div class="card table-overflow">
               <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
               <table class="table table-bordered table-hover table-sm table-rtl">
                 <thead>
@@ -60,7 +60,7 @@
         </ngb-tab>
         <ngb-tab title="גילאי 5+">
           <template ngbTabContent>
-            <div class="card">
+            <div class="card table-overflow">
               <!--<activity-component [activity]="activity" (valueUpdated)="updateCart($event)"></activity-component>-->
               <table class="table table-bordered table-hover table-sm table-rtl">
                 <thead>
@@ -90,8 +90,8 @@
     </div>
   </div>
   <div>
-    <button type="button" class="btn btn-primary" *ngIf="!isNew" (click)="updateProgram()">להעדכן תוכנית</button>
-    <button type="button" class="btn btn-primary" *ngIf="isNew" (click)="addFamily()">להוסיף משפחה</button>
+    <button type="button" class="btn btn-primary" *ngIf="!isNew" (click)="updateProgram()">עדכן תוכנית</button>
+    <button type="button" class="btn btn-primary" *ngIf="isNew" (click)="addFamily()">הוסף</button>
 
   </div>
 

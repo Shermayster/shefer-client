@@ -12,6 +12,7 @@ import {
 import {AuthService} from '../shared/auth.sevice';
 import {Form} from '@angular/forms';
 import {ParentService, ActivitiesResponse} from './parent.service';
+import {HttpService} from "../shared/http.service";
 @Component({
   selector: 'paren-page',
   templateUrl: './parent-page.component.html',
@@ -29,7 +30,7 @@ export class ParentPage implements OnInit, OnDestroy {
   patient: PatientBase;
   activeProgram: ActivitiesProgram;
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService,
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService, private httpService:HttpService,
               public patientData: PatientData, public authService: AuthService, protected parentService: ParentService) {
   }
 
@@ -44,8 +45,6 @@ export class ParentPage implements OnInit, OnDestroy {
           this.patient = this.patientData._patientData;
           this.contact = this.patient.contact;
           this.activeProgram = this.parentService.findActiveProgram(this.patient.program);
-          localStorage.setItem('patientData', JSON.stringify(this.patient));
-          localStorage.setItem('patientAddress', JSON.stringify(this.contact));
         }
       })
     }
@@ -82,15 +81,17 @@ export class ParentPage implements OnInit, OnDestroy {
    */
   addFamily() {
     this.patient.doctorId = this.dataService.doctorData._doctorData.doctorId;
-    localStorage.setItem('newPatient', JSON.stringify(this.patient));
-    var newPatient = localStorage.getItem('newPatient')
     this.router.navigate(['parent/program-page/', 'new']);
-    console.log('add family ', newPatient);
-
   }
 
   updateContact() {
+    //todo: update contact
     console.log('update contact', this.contact);
+    this.httpService.updateContact(this.patient)
+      .subscribe(res => {
+        this.patient.contact = this.contact;
+        this.router.navigate(['protected']);
+      })
   }
 
   responseRoute() {
@@ -104,8 +105,7 @@ export class ParentPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-    localStorage.setItem('patientData', '');
-    localStorage.setItem('patientAddress', '');
+
   }
 
   // turn on editing
@@ -117,7 +117,5 @@ export class ParentPage implements OnInit, OnDestroy {
   changeProgram() {
     this.router.navigate(['parent/program-page/', this.patient.patientID]);
   }
-
-
 
 }

@@ -17,10 +17,7 @@ export class AppComponent implements OnChanges{
 
   ngOnInit() {
 
-    /*if(localStorage.getItem('doctorData')) {
-      let localData = JSON.parse(localStorage.getItem('doctorData'));
-      this.dataService.setDoctor(localData);
-    }*/
+
   }
   ngOnChanges() {
     this.isAuth = this.appAuth._authState;

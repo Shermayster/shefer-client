@@ -15,13 +15,14 @@ import {patientActivity, ActivitiesProgram} from '../../../shared/patien.interfa
 export class ProgramCartComponent {
   @Input() activityProgram: ActivitiesProgram;
 
+  duration= [1,2,3,4,5];
+
   model = 1;
   ngOnInit() {
-    this.activityProgram.duration = this.model;
+    if(!this.activityProgram.duration) {
+      this.activityProgram.duration = this.model;
+    }
+
   }
 
-  addDuration(value) {
-    debugger
-    this.activityProgram.duration = value;
-  }
 }

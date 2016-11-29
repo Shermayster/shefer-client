@@ -87,6 +87,8 @@ export class DataService {
     this.doctorData._doctorData.patients.push(family);
   }
 
+  updateDa
+
 
 
 }

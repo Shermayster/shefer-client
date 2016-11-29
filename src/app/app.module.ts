@@ -32,6 +32,7 @@ import {PanelModule} from "primeng/components/panel/panel";
 import {SharedModule} from "primeng/components/common/shared";
 import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
+import {OdotComponent} from "./odot-component/odot-component";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {CheckboxModule} from "primeng/components/checkbox/checkbox";
     SideMenuComponent,
     ActivityComponent,
     ProgramCartComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    OdotComponent
   ],
   imports: [
     BrowserModule,

@@ -9,38 +9,100 @@
   <thead>
   <tr>
     <th>משפחה</th>
-    <th>פעילויות</th>
     <th>משובים</th>
     <th>עדכון תוכנית</th>
     <th>יצירת קשר</th>
+    <th>מחיקה</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let patient of data.patients">
     <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <button class="edit-btn btn btn-primary left" (click)="onParentSelect(patient)">ערוך</button></td>
-    <td>
-      <div *ngFor="let program of patient.program let i = index">
-        <div *ngIf="program.status === true">
-
-          <feedback-component [activity]="program.patientActivityList"></feedback-component>
-         <!-- <ul class="list-unstyled mdl-list">
-            <li class="mdl-list__item"  *ngFor="let activity of " >
-              <feedback-component [activity]="activity"></feedback-component>
-             &lt;!&ndash; <span class="mdl-list__item-primary-content" >{{activity.activityId}}</span>&ndash;&gt;
-              &lt;!&ndash;   &lt;!&ndash; <ul class="list-unstyled">
-                 <li *ngfor="let activity of program.patientActivity">{{activity.activityId}}</li>
-               </ul>&ndash;&gt;&ndash;&gt;
-            </li>
-          </ul>-->
-        </div>
-      </div>
-      </td>
-    <td><i class="material-icons">insert_drive_file</i></td>
-    <td><i class="material-icons">settings_applications</i></td>
-    <td><i class="material-icons">contacts</i></td>
+    <td><i class="material-icons" (click)="openFeedback(response, patient)">insert_drive_file</i></td>
+    <td><i class="material-icons" (click)="changeProgram(patient)">settings_applications</i></td>
+    <td><i class="material-icons" (click)="openModal(content, patient)">contacts</i></td>
+    <td><i class="material-icons" (click)="deleteModalfun(deleteModal, patient)">delete</i></td>
   </tr>
   </tbody>
 </table>
-
-
 </div>
+
+<template #content ngbModalContainer let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">צירת קשר</h4>
+  </div>
+  <div class="modal-body">
+    <div><strong>אי מייל</strong>: {{currentContact.email}} </div>
+    <div><strong>טלפון</strong>:  {{currentContact.tel}}  </div>
+    <div><strong>טלפון נוסף</strong>:  {{currentContact.tel2}} </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">סגור</button>
+  </div>
+</template>
+
+<template #feedback ngbModalContainer let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">צירת קשר</h4>
+  </div>
+  <div class="modal-body">
+    <div><strong>אי מייל</strong>: {{currentContact.email}} </div>
+    <div><strong>טלפון</strong>:  {{currentContact.tel}}  </div>
+    <div><strong>טלפון נוסף</strong>:  {{currentContact.tel2}} </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">סגור</button>
+  </div>
+</template>
+<template #deleteModal ngbModalContainer  let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">מחיקה</h4>
+  </div>
+  <div class="modal-body">
+   ברצונך למחוק את המטופל?
+    <div *ngIf="currentFamily">
+      <button type="button" (click)="deleteFamily(patient)" class="btn btn-outline-danger">כן</button>
+      <button type="button" (click)="c('Close click')" class="btn btn-outline-secondary">לא</button>
+    </div>
+    <div *ngIf="!currentFamily">
+      מחיקה בוצע בהצלחה
+    </div>
+  <div>
+
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">סגור</button>
+  </div>
+</template>
+
+<template #response ngbModalContainer let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">משובים</h4>
+  </div>
+  <div class="modal-body">
+   <div *ngFor="let activity of currentFamily.program[0].patientActivityList">
+     <span *ngIf="activity.activityRestponce">פעילות: {{activity.activityName}} תגובה: {{activity.activityRestponce}}</span>
+   </div>
+  <div *ngIf="dontResponse">
+לא בוצעו פעילויות
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">סגור</button>
+  </div>
+</template>

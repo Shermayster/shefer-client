@@ -9,16 +9,19 @@ import {SignInComponent} from "./sign-in/sign-in.component";
 import {ModuleWithProviders} from "@angular/core";
 import {AuthGuard} from "./shared/auth.guard";
 import {ProtectedClass} from "./protected/protected.component";
+import {ProgramPageComponent} from "./parent-page/program-page/program-page.component";
+import {OdotComponent} from "./odot-component/odot-component";
 
 
 const appRoutes: Routes = [
   { path: 'home',  component: Home },
-  { path: 'about', component: About },
+  { path: 'odot', component: OdotComponent },
   { path: '', redirectTo:'/signin', pathMatch: 'full'},
   { path:'signup', component:SignUpComponent},
   { path:'signin', component:SignInComponent},
   {path:'protected', component: ProtectedClass, canActivate: [AuthGuard]},
-  { path: '**',    component: NoContent },
+  { path: "parent/program-page/:id", component: ProgramPageComponent, canActivate: [AuthGuard]},
+  { path: '**',    component: SignInComponent },
 ];
 
 export const appRoutingProviders: any[] = [

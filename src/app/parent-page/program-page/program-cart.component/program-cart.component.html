@@ -23,7 +23,7 @@
             </thead>
             <tbody  *ngIf="activityProgram.patientActivityList">
             <tr *ngFor="let activity of activityProgram.patientActivityList">
-              <td>{{activity.activityName}}</td>
+              <td>{{activity.activityNameParent}}</td>
               <td>
                 <div [ngSwitch]="activity.activityType">
                   <span *ngSwitchCase="'Food'">אוכל</span>
@@ -32,7 +32,7 @@
                 </div>
 
               </td>
-              <td>{{activity.group}}</td>
+              <td>{{activity.activityGroupAge}}</td>
             </tr>
             </tbody>
           </table>
@@ -40,7 +40,7 @@
         <div class="col-xs-12">
           <h6>מספר שבועות לתוכנית</h6>
         </div>
-        <div [(ngModel)]="model" (change)="addDuration(model)" ngbRadioGroup name="radioBasic">
+      <!--  <div [(ngModel)]="model" (change)="addDuration(model)" ngbRadioGroup name="radioBasic">
           <label class="btn btn-primary">
             <input type="radio" [value]="1"> 1
           </label>
@@ -56,7 +56,13 @@
           <label class="btn btn-primary">
             <input type="radio" [value]="5"> 5
           </label>
+        </div>-->
+        <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active" *ngFor="let week of duration">
+            <input type="radio" name="week"  [value]="week" [(ngModel)]="activityProgram.duration" />  {{week}}
+          </label>
         </div>
+
       </div>
     </div>
   </div>

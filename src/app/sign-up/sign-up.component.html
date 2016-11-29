@@ -1,4 +1,4 @@
-<div class="container">
+<div class="card-container card">
   <div class="greetings">
     <h2>
       ברוכים הבאים לאתר הדרכת הורים
@@ -8,23 +8,22 @@
     </strong>
     </p>
   </div>
+  <div class="card-block">
   <div class="sign-up-form">
     <h4>הרשמה למערכת</h4>
-    <form [formGroup]="signinForm" (submit)="onSubmit()">
+    <form [formGroup]="signupForm" (submit)="onSubmit()">
       <div class="form-group">
         <label for="email">שם משתמש</label>
-        <input formControlName="email" class="form-control" #email id="email" type="email">
+        <input formControlName="email"  class="form-control" #email id="email" type="email">
       </div>
       <div class="form-group">
         <label for="password">סיסמה</label>
-        <input formControlName="password" class="form-control" #email id="password" type="password">
+        <input formControlName="password"  class="form-control" #email id="password" type="password">
       </div>
-      <div class="form-group">
-        <label for="password">סיסמה</label>
-        <input formControlName="password" class="form-control" #email id="password" type="password">
-      </div>
-      <button type="submit" [disabled]="!signinForm.valid">כניסה למערכת</button>
+
+      <button [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">הרשמה</button>
     </form>
+  </div>
   </div>
 </div>
 

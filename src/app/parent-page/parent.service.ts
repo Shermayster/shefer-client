@@ -18,14 +18,14 @@ export class ParentService {
     let responseActivities:ActivitiesResponse = {done: 0, partialExecution:0, notCarriedOut:0, overallActivities:0, notCooperating:0};
     activities.forEach(activity => {
       responseActivities.overallActivities ++;
-      switch (activity.activityResponce) {
-        case "Done":
+      switch (activity.activityRestponce) {
+        case "הצלחנו":
           responseActivities.done ++;
               break;
-        case "Partial Execution":
+        case "כמעט הצלחנו":
           responseActivities.partialExecution ++;
               break;
-        case "Not Carried Out":
+        case "לא ביצענו":
           responseActivities.notCarriedOut ++;
               break;
         case "Not Cooperating":
@@ -64,7 +64,6 @@ export class ParentService {
       if(patientId) {
         activity.patientActivityId = patientId;
       }
-
     });
     return activities;
   }
