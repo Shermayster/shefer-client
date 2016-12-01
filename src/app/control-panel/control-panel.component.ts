@@ -84,8 +84,10 @@ export class ControlPanelComponent implements OnChanges {
   //show patient feedback
   openFeedback(response, patient:PatientBase) {
     this.currentFamily = patient;
-     if(this.currentFamily.program[0].patientActivityList.filter(activity => activity.activityFeedback).length === 0){
+     if(this.currentFamily.program[0].patientActivityList.filter(activity => activity.activityRestponce).length === 0){
       this.dontResponse = true;
+     }else {
+       this.dontResponse =false;
      }
     this.modalService.open(response).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

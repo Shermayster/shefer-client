@@ -33,6 +33,7 @@ import {SharedModule} from "primeng/components/common/shared";
 import {FeedbackComponent} from "./control-panel/feedback/feedback.component";
 import {CheckboxModule} from "primeng/components/checkbox/checkbox";
 import {OdotComponent} from "./odot-component/odot-component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {OdotComponent} from "./odot-component/odot-component";
     HttpService,
     AppState,
     AuthGuard,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     AppAuth
   ],
   bootstrap: [AppComponent]

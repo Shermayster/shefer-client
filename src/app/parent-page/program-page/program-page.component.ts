@@ -109,6 +109,10 @@ export class ProgramPageComponent {
     )
 
   }
+
+  goBack() {
+    this.router.navigate(['protected']);
+  }
 }
 
 

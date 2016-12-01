@@ -1,6 +1,6 @@
 <div class="control-table card card-block card-container">
     <h1>לוח בקרה</h1>
-    <button type="button" class="btn btn-primary" (click)="addFamily()">להוסיף משפחה</button>
+    <button type="button" class="btn btn-primary" (click)="addFamily()">הוספת משפחה</button>
 
 
 
@@ -17,7 +17,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let patient of data.patients">
-    <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <button class="edit-btn btn btn-primary left" (click)="onParentSelect(patient)">ערוך</button></td>
+    <td scope="row"><span class="right">{{patient.contact.lastName}}</span> <button class="edit-btn btn btn-primary left" (click)="onParentSelect(patient)">הצג</button></td>
     <td><i class="material-icons" (click)="openFeedback(response, patient)">insert_drive_file</i></td>
     <td><i class="material-icons" (click)="changeProgram(patient)">settings_applications</i></td>
     <td><i class="material-icons" (click)="openModal(content, patient)">contacts</i></td>
@@ -50,7 +50,7 @@
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-    <h4 class="modal-title">צירת קשר</h4>
+    <h4 class="modal-title">יצירת קשר</h4>
   </div>
   <div class="modal-body">
     <div><strong>אי מייל</strong>: {{currentContact.email}} </div>

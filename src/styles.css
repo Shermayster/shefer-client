@@ -134,10 +134,7 @@ input[type="text"] {
   max-width: 8rem; }
 
 .table-cell-description {
-  max-width: 25rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  max-width: 25rem; }
 
 .control-table h1 {
   display: inline-block;

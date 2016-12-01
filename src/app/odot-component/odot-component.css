@@ -31,6 +31,9 @@
 .shefer-logo-block .text-block {
   margin-top: 6.2rem;
 }
+.shefer-logo-block img {
+  margin-top: 1.5rem;
+}
 .bold-text {
   display: block;
   font-weight: bold;

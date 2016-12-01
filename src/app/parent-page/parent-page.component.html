@@ -1,7 +1,7 @@
 <div class="parent-tabs">
   <h1 class="card-title">צפייה בכרטיס משפחה</h1>
   <ngb-tabset>
-    <ngb-tab title="ביצוע הפעילויות">
+    <ngb-tab title="פרטים אישיים">
       <template ngbTabContent>
         <div class="card">
           <h3 class="card-title" *ngIf="!isNew">משפחת {{contact.lastName}}</h3>
@@ -55,12 +55,12 @@
 
       </template>
     </ngb-tab>
-    <ngb-tab title="פרטים אישיים" *ngIf="!isNew">
+    <ngb-tab title="שינוי תוכנית" *ngIf="!isNew">
       <template ngbTabContent>
         <div class="card">
           <div class="card-block title-block">
-            <h4 class="card-title">   צפייה בהתקדמות ביצוע הפעילויות</h4>
-            <a (click)="changeProgram()" class="btn btn-primary">שינוי תוכנית</a>
+            <h4 class="card-title">מעקב פעילויות</h4>
+            <a (click)="changeProgram()" class="btn btn-primary">עדכון תוכנית</a>
           </div>
           <div class="card-block">
             <table class="table table-bordered">
@@ -78,17 +78,12 @@
                   {{activity.activityName}}
                 </td>
 
-                <td [ngSwitch]="activity.activityType">
-                  <span *ngSwitchCase="'Food'">אוכל</span>
-                  <span *ngSwitchCase="'Not Carried Out'">לא בוצע</span>
-                  <span *ngSwitchCase="'Not Cooperating'">לא משתף פעולה</span>
-                  <span *ngSwitchCase="'Partial Execution'">בוצה חלקית</span>
+                <td>
+                  <span>{{activity.activityType}}</span>
                 </td>
-                <td [ngSwitch]="activity.activityFeedback">
-                  <span *ngSwitchCase="'Done'">בוצע בהצלחה</span>
-                  <span *ngSwitchCase="'Not Carried Out'">לא בוצע</span>
-                  <span *ngSwitchCase="'Not Cooperating'">לא משתף פעולה</span>
-                  <span *ngSwitchCase="'Partial Execution'">בוצה חלקית</span>
+                <td>
+                  <span *ngIf="!activity.activityRestponce">טרם בוצע</span>
+                  <span *ngIf="activity.activityRestponce">{{activity.activityRestponce}}</span>
                 </td>
               </tr>
               </tbody>
