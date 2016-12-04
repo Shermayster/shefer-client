@@ -47,7 +47,7 @@
               <!-- -->
               <button class="btn btn-outline-primary" type="submit" *ngIf="!isNew" [disabled]="!patientForm.form.valid">שמירה</button>
               <button class="btn btn-outline-primary" type="submit" *ngIf="isNew" [disabled]="!patientForm.form.valid">המשך</button>
-              <button (click)="onCancel()" type="reset" class="btn btn-outline-secondary">ביטול</button>
+              <button (click)="onCancel()" type="reset" class="btn btn-secondary">ביטול</button>
             </div>
 
           </form>
@@ -60,7 +60,7 @@
         <div class="card">
           <div class="card-block title-block">
             <h4 class="card-title">מעקב פעילויות</h4>
-            <a (click)="changeProgram()" class="btn btn-primary">עדכון תוכנית</a>
+            <button (click)="changeProgram()" class="btn btn-primary">עדכון תוכנית</button>
           </div>
           <div class="card-block">
             <table class="table table-bordered">
@@ -72,8 +72,8 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let activity of activeProgram.patientActivityList" [ngClass]="{'table-danger': activity.activityFeedback === 'Not Carried Out' || activity.activityFeedback === 'Not Cooperating',
-          'table-warning': activity.activityFeedback === 'Partial Execution'}">
+              <tr *ngFor="let activity of activeProgram.patientActivityList" [ngClass]="{'table-danger': activity.activityRestponce === 'לא הצלחנו' || activity.activityRestponce === 'כמעט הצלחנו',
+          'table-success': activity.activityRestponce === 'הצלחנו'}">
                 <td>
                   {{activity.activityName}}
                 </td>

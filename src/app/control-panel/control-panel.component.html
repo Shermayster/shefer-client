@@ -95,8 +95,15 @@
     <h4 class="modal-title">משובים</h4>
   </div>
   <div class="modal-body">
+    <span> <strong>
+      שבוע
+      {{currentFamily.program[0].currentWeek}}
+    מתוך
+      {{currentFamily.program[0].duration}}
+      </strong>
+    </span>
    <div *ngFor="let activity of currentFamily.program[0].patientActivityList">
-     <span *ngIf="activity.activityRestponce">פעילות: {{activity.activityName}} תגובה: {{activity.activityRestponce}}</span>
+     <span *ngIf="activity.activityRestponce"> {{activity.activityName}} תגובה: {{activity.activityRestponce}}</span>
    </div>
   <div *ngIf="dontResponse">
 לא בוצעו פעילויות

@@ -1,10 +1,16 @@
 <div class="card-container card">
   <div class="greetings">
+    <img src="assets/pics/logo-name.png" alt="מיו-מן">
     <h2>
-      ברוכים הבאים לאתר הדרכת הורים
-    </h2>
+      הרשמה למערכת
+ </h2>
     <p><strong>
-      אתר המסייע למטפל בריפוי בעיסוק להדריך הורים לתרגל עם ילדיהם תרגילים בריפוי בעיסוק
+
+
+      ברוכים הבאים למיו-מן!
+      <br>
+      כדי להצטרף למערכת, מלאו את הטופס הבא.
+
     </strong>
     </p>
   </div>
@@ -23,6 +29,15 @@
 
       <button [disabled]="!signupForm.valid" class="btn btn-primary" type="submit">הרשמה</button>
     </form>
+    <div *ngIf="isSignUp" class="success-message alert alert-success">
+
+    <strong> נרשמת בהצלחה! </strong>
+      <br>
+      עכשיו ניתן
+      <a routerLink="/signin" class="alert-link">
+      להיכנס למערכת
+      </a>
+    </div>
   </div>
   </div>
 </div>

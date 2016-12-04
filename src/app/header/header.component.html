@@ -2,29 +2,23 @@
   <nav class="navbar navbar-light bg-faded">
     <ul class="nav navbar-nav rtl-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/signin">
+        <a class="nav-link" routerLink="/signin">
           <img src="assets/pics/logo_mayo.png" alt="logo" style="width: 4.5rem;  margin: -1rem 1rem;">
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signin" routerLinkActive="active">כניסה למערכת</a>
+        <a class="nav-link" routerLink="/signin" *ngIf="!isSignIn" routerLinkActive="active">כניסה למערכת</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" routerLinkActive="active">הרשמה למערכת</a>
+        <a class="nav-link" routerLink="/signup" *ngIf="!isSignIn" routerLinkActive="active">הרשמה למערכת</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="/odot" routerLinkActive="active">אודות</a>
-      </li>
-      <!--
-      <li class="nav-item">
-        <a class="nav-link"  href="#" routerLinkActive="active">צור קשר</a>
+        <a class="nav-link" routerLink="/protected" *ngIf="isSignIn" routerLinkActive="active">לוח בקרה</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="#" routerLinkActive="active">עזרה</a>
+        <a class="nav-link"  routerLink="/odot" routerLinkActive="active">אודות</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>-->
+
     </ul>
   </nav>
 </header>

@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 /*  styleUrls: ['./sign-up.component.ts']*/
 })
 export class SignUpComponent implements OnInit {
+  isSignUp:boolean = false;
   signupForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private httpService:HttpService, private router:Router) { }
 
@@ -29,7 +30,7 @@ export class SignUpComponent implements OnInit {
     newDoctor['email'] = this.signupForm.value.email;
     newDoctor['password'] = this.signupForm.value.password;
     this.httpService.addDoctor(newDoctor).subscribe(
-      res=> this.router.navigate(['signin'])
+      res=> this.isSignUp = true
     )
 
   }

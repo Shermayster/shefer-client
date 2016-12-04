@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "../shared/auth.sevice";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,24 @@ import {AuthService} from "../shared/auth.sevice";
 })
 export class HeaderComponent implements OnInit {
   isSignIn: boolean = false;
-  constructor(private  authService: AuthService) { }
+  constructor(private  authService: AuthService, private router:Router) { }
 
   ngOnInit() {
-    this.authService.getAuth().subscribe(
-      res => this.isSignIn = res
-    )
+   this.router.events.subscribe(
+     event => {
+       if(event.url === '/protected') {
+         this.isSignIn = true;
+       }
+       if(event.url === '/signin') {
+         this.isSignIn = false;
+       }
+     }
+   )
 
+  }
+
+  navToOdot() {
+    this.router.navigate(['/odot']);
   }
 
 }

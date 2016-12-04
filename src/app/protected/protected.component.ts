@@ -21,7 +21,10 @@ export class ProtectedClass implements AfterViewInit{
   constructor(private auth: AuthService, private dataService:DataService, private router:Router) { }
 
   ngOnInit() {
-
+    let data = this.dataService.getDoctorData();
+    if(!data) {
+      this.router.navigate(['/signin']);
+    }
   }
 
   ngAfterViewInit() {

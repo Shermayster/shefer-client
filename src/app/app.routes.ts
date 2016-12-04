@@ -1,7 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { Home } from './home';
-import { About } from './about';
-import { NoContent } from './no-content';
+
 
 import { DataResolver } from './app.resolver';
 import {SignUpComponent} from "./sign-up/sign-up.component";
@@ -14,8 +12,8 @@ import {OdotComponent} from "./odot-component/odot-component";
 
 
 const appRoutes: Routes = [
-  { path: 'home',  component: Home },
-  { path: 'odot', component: OdotComponent },
+
+  { path: 'odot', component:OdotComponent},
   { path: '', redirectTo:'/signin', pathMatch: 'full'},
   { path:'signup', component:SignUpComponent},
   { path:'signin', component:SignInComponent},

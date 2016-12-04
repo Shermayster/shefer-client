@@ -12,10 +12,6 @@ import {ControlPanelComponent} from "./control-panel/control-panel.component";
 import {AuthService, AppAuth} from "./shared/auth.sevice";
 import {DataService, DoctorData, PatientData} from "./shared/data.service";
 import {HttpService} from "./shared/http.service";
-import {About} from "./about/about.component";
-import {Home} from "./home/home.component";
-import {NoContent} from "./no-content/no-content";
-import {XLarge} from "./home/x-large/x-large.directive";
 import {SignInComponent} from "./sign-in/sign-in.component";
 import {HeaderComponent} from "./header/header.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
@@ -38,10 +34,6 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
-    About,
-    Home,
-    NoContent,
-    XLarge,
     SignInComponent,
     HeaderComponent,
     SignUpComponent,
